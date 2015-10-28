@@ -26,7 +26,6 @@ class PaymentsController < ApplicationController
   # POST /payments.json
   def create
     @payment = Payment.new(payment_params)
-    @payment.sender_id = current_user.id
 
     respond_to do |format|
       if @payment.save

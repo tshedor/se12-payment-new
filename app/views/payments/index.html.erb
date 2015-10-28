@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Recipient</th>
+      <th>To</th>
       <th>Amount</th>
       <th>Type</th>
       <th>Note</th>
@@ -35,7 +35,7 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Recipient</th>
+      <th>From</th>
       <th>Amount</th>
       <th>Type</th>
       <th>Note</th>
@@ -47,7 +47,7 @@
     <% @recipient_payments.each do |payment| %>
       <tr>
         <td><%= payment.title %></td>
-        <td><%= payment.recipient_id %></td>
+        <td><%= payment.sender_id %></td>
         <td><%= payment.amount %></td>
         <td><%= payment.type_id %></td>
         <td><%= payment.note %></td>
