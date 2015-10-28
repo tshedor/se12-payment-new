@@ -7,8 +7,6 @@ class CreatePayments < ActiveRecord::Migration
       t.decimal :amount
       t.integer :type_id
       t.text :note
-      t.integer :recipient_id
-      t.integer :sender_id
 
       t.timestamps null: false
     end
