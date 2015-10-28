@@ -23,11 +23,13 @@ ActiveRecord::Schema.define(version: 20151028200118) do
 
   create_table "payments", force: :cascade do |t|
     t.string   "title"
+    t.integer  "recipient_id"
+    t.integer  "sender_id"
     t.decimal  "amount"
     t.integer  "type_id"
     t.text     "note"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "types", force: :cascade do |t|
