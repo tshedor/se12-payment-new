@@ -3,10 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background: url("IMG_8765.jpg") no-repeat right top;
-  background-size: 100%;
+  background: url("IMG_8765.jpg") no-repeat center fixed;
+  background-size: cover;
 }
 
 .login-form {
