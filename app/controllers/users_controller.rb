@@ -61,6 +61,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def authenticate
+    @user = User.authenticate(params[:email], params[:password])
+    if @user.present?
+      session[:user_id] = @user.id
+      redirect_to user_path(@user.id)
+    else
+      @errors = "Invalid login"
+      render :login
+    end
+  end
+
+  def logout
+    session.delete(:user_id)
+    redirect_to :login
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
