@@ -1,17 +1,20 @@
 <%= form_tag "/login", :class=>"login-form" do %>
-<div class="cred-container login-email">
-<%= text_field_tag 'email', nil, :placeholder => 'email' %>
+<h2 class="login-form-heading">Login</h2>
+<div class="cred-container login-email" required>
+<%= text_field_tag 'email', nil, :placeholder => 'email', class: "form-control" %>
 </div>
 
-<div class="cred-container login-password">
-<%= password_field_tag 'password', nil, :placeholder => 'password' %>
+<div class="cred-container login-password" required>
+<%= password_field_tag 'password', nil, :placeholder => 'password', class: "form-control"%>
 </div>  
 
-<% if @errors.present? %>
-    <div id="error">
-        <p><%= @errors %></p>
-    </div>
-  <% end %>
 
-<%= submit_tag("Login") %>
+<%= submit_tag "Log in", class: "btn btn-lg btn-primary btn-block"  %>
+
+<% flash.each do |type, message| %>
+  <div class="alert <%= bootstrap_class_for(type) %> fade in">
+    <%= message %>
+  </div>
+<% end %>
+
 <% end %>

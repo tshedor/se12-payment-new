@@ -67,7 +67,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user.id)
     else
-      @errors = "Invalid login"
+      flash.now[:error] = "Invalid email/password combination"
       render :login
     end
   end
