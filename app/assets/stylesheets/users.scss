@@ -2,15 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
+.login-page {
   background: url("IMG_8765.jpg") no-repeat center fixed;
   background-size: cover;
 }
-
 .login-form {
   max-width: 330px;
-  padding: 15px;
-  margin: 30% auto;
+  margin: auto;
+  position: absolute;
+  top: 43%; left: 0; bottom: 0; right: 0;
 }
 .login-form .login-form-heading {
   margin-bottom: 10px;
