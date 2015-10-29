@@ -65,7 +65,7 @@ class UsersController < ApplicationController
     @user = User.authenticate(params[:email], params[:password])
     if @user.present?
       session[:user_id] = @user.id
-      redirect_to user_path(@user.id)
+      redirect_to payments_path
     else
       flash.now[:error] = "Invalid email/password combination"
       render :login
