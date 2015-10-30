@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
+// login page styles
 .login-page {
   background: url("IMG_8765.jpg") no-repeat center fixed;
   background-size: cover;
@@ -54,9 +57,12 @@
     background-color: rgb(217, 83, 79);
     border-color: rgb(212, 63, 58);
 }
-
 .signup-link {
   margin-top: 1px;
   font-size: 14px;
   color: white;
+  :hover {
+    text-decoration: none;
+    color: lightblue;
+  }
 }
