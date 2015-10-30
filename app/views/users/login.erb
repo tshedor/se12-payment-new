@@ -1,14 +1,16 @@
 <% content_for :body_class, "landing-page" %>
   <div class="row">
 		<div class="col-md-6 col-md-offset-3">
-			<div class="panel panel-login">
+			<div class="panel-login">
 				<div class="panel-heading">
 						<div class="row">
-							<div class="col-xs-6">
-								<a href="#" class="active" id="login-form-link">Login</a>
-							</div>
-							<div class="col-xs-6">
-								<a href="#" id="signup-form-link">Register</a>
+							<div class="btn-group">
+									<a class="btn btn-default active" href="#" id="login-form-link">
+										Login
+									</a>
+									<a class="btn btn-default" href="#" id="signup-form-link">
+										Register
+									</a>	
 							</div>
 						</div>
 						<hr>
@@ -54,7 +56,7 @@
 							<div class="form-group">
 								<div class="row">
 									<div class="col-sm-6 col-sm-offset-3">
-										<%= submit_tag "Register", class: "form-control btn btn-login", :tabindex=>"5" %>
+										<%= submit_tag "Register", class: "form-control btn btn-register", :tabindex=>"5" %>
 									</div>
 								</div>
 							</div>

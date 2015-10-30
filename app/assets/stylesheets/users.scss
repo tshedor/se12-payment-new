@@ -10,30 +10,26 @@
   background-size: cover;
   margin-top: 19%;
 }
+.panel {}
 .panel-login {
   border-color: #ccc;
-  -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
-  -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
-  box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
 }
 .panel-login>.panel-heading {
   color: #00415d;
-  background-color: #fff;
   border-color: #fff;
   text-align:center;
+  border: none;
 }
 .panel-login>.panel-heading a{
   text-decoration: none;
   color: #666;
   font-weight: bold;
-  font-size: 15px;
   -webkit-transition: all 0.1s linear;
   -moz-transition: all 0.1s linear;
   transition: all 0.1s linear;
 }
 .panel-login>.panel-heading a.active{
-  color: #029f5b;
-  font-size: 18px;
+  background-color: #C9C9C9;
 }
 .panel-login>.panel-heading hr{
   margin-top: 10px;
@@ -41,10 +37,6 @@
   clear: both;
   border: 0;
   height: 1px;
-  background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
-  background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
-  background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
-  background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
 }
 .panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
   height: 45px;
@@ -62,10 +54,11 @@
   box-shadow: none;
   border-color: #ccc;
 }
+
 .btn-login {
-  background-color: #59B2E0;
+  background-color: #59B2E0 !important;
   outline: none;
-  color: #fff;
+  color: #fff !important;
   font-size: 14px;
   height: auto;
   font-weight: normal;
@@ -76,23 +69,13 @@
 .btn-login:hover,
 .btn-login:focus {
   color: #fff;
-  background-color: #53A3CD;
-  border-color: #53A3CD;
+  background-color: #53A3CD !important;
+  border-color: #53A3CD !important;
 }
-.forgot-password {
-  text-decoration: underline;
-  color: #888;
-}
-.forgot-password:hover,
-.forgot-password:focus {
-  text-decoration: underline;
-  color: #666;
-}
-
 .btn-register {
-  background-color: #1CB94E;
+  background-color: #59B2E0 !important;
   outline: none;
-  color: #fff;
+  color: #fff !important;
   font-size: 14px;
   height: auto;
   font-weight: normal;
@@ -103,7 +86,7 @@
 .btn-register:hover,
 .btn-register:focus {
   color: #fff;
-  background-color: #1CA347;
-  border-color: #1CA347;
+  background-color: #53A3CD !important;
+  border-color: #1CA347 !important;
 }
 

@@ -32,9 +32,7 @@ $(document).ready(function() {
 		}
 
 		if (state) {
-				$addon.removeClass('danger');
-				$addon.addClass('success');
-				$icon.attr('class', 'glyphicon glyphicon-ok');
+				document.getElementById("email")
 		}else{
 				$addon.removeClass('success');
 				$addon.addClass('danger');
