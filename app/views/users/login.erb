@@ -32,12 +32,6 @@
 									</div>
 								</div>
 							</div>
-
-								<% flash.each do |type, message| %>
-								  <div class="alert <%= bootstrap_class_for(type) %> fade in error-message">
-								    <%= message %>
-								  </div>
-								<% end %>
 						<% end %>
 
 						<%= form_tag "/users", :class=>"signup-form", :id=>"signup-form", :role=>"form", :style=>"display: none;"  do %>
@@ -69,6 +63,11 @@
 				</div>
 			</div>
 		</div>
+							<% flash.each do |type, message| %>
+							  <div class="alert <%= bootstrap_class_for(type) %> fade in error-message">
+							    <%= message %>
+							  </div>
+							<% end %>
 	</div>
 </div>
 
