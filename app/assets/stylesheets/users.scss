@@ -8,22 +8,34 @@
 .landing-page {
   background: url("IMG_8765.jpg") no-repeat center fixed;
   background-size: cover;
-  margin-top: 19%;
 }
-.panel {}
+.panel {
+  margin-top: 33%;
+  background-color: transparent !important;
+}
 .panel-login {
   border-color: #ccc;
+  .panel-body {
+    padding-top: 5px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .form-group {
+    margin-bottom: 8px;
+  }
 }
 .panel-login>.panel-heading {
   color: #00415d;
   border-color: #fff;
   text-align:center;
   border: none;
+  padding-bottom: 0px;
+  margin-bottom: 10px;
 }
 .panel-login>.panel-heading a{
+  font-size: 20px;
   text-decoration: none;
   color: #666;
-  font-weight: bold;
   -webkit-transition: all 0.1s linear;
   -moz-transition: all 0.1s linear;
   transition: all 0.1s linear;
@@ -54,7 +66,9 @@
   box-shadow: none;
   border-color: #ccc;
 }
-
+.btn {
+  margin-top: 10px !important;
+}
 .btn-login {
   background-color: #59B2E0 !important;
   outline: none;
