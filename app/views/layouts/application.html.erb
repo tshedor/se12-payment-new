@@ -10,7 +10,8 @@
 <body class="<%= yield (:body_class) %>"> 
 
 <div class="container">
-  <% if current_user.present? %>
+
+  <% if !session[:user_id].nil? %>
     <div class="pull-right">
     	<h3>
     		<%= "Hi, #{current_user.first_name}!" %> |
@@ -19,7 +20,8 @@
     </div>
   <% end %>
   
-<%= yield %>
+  <%= yield %>
+</div>
 
 </body>
 </html>

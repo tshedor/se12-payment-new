@@ -1,7 +1,7 @@
 <% content_for :body_class, "login-page" %>
 
 <%= form_tag "/login", :class=>"login-form" do %>
-<!-- <h2 class="login-form-heading">Login</h2> -->
+
 <div class="input-group login-email validate-email" data-validate="email" >
 <%= text_field_tag 'email', nil, :placeholder => 'email', class: "form-control", :required=>true %>
 <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
@@ -15,8 +15,10 @@
 
 <%= submit_tag "Log in", class: "btn btn-lg btn-primary btn-block"  %>
 
+<p class="signup-link">New user? <%= link_to "Register", signup_path %></p>
+
 <% flash.each do |type, message| %>
-  <div class="alert <%= bootstrap_class_for(type) %> fade in">
+  <div class="alert <%= bootstrap_class_for(type) %> fade in error-message">
     <%= message %>
   </div>
 <% end %>
