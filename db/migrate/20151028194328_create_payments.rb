@@ -4,7 +4,7 @@ class CreatePayments < ActiveRecord::Migration
       t.string :title
       t.integer :recipient_id
       t.integer :sender_id
-      t.decimal :amount
+      t.decimal :amount, :precision=>2
       t.integer :type_id
       t.text :note
 
