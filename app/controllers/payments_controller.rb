@@ -24,7 +24,7 @@ class PaymentsController < ApplicationController
   # GET /payments/1
   # GET /payments/1.json
   def show
-    @payment = Payment.find_by_id(@payment.id)
+    @payment = Payment.find_by_id(params[:id])
   end
 
   # GET /payments/new
@@ -34,6 +34,7 @@ class PaymentsController < ApplicationController
 
   # GET /payments/1/edit
   def edit
+    @payment = Payment.find_by_id(params[:id])
   end
 
   # POST /payments
