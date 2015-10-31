@@ -6,11 +6,25 @@ class PaymentsController < ApplicationController
   def index
     @sender_payments = Payment.where(sender_id: "#{current_user.id}").all
     @recipient_payments = Payment.where(recipient_id: "#{current_user.id}").all
+
+    dollars_owed = 0
+    Payment.where(recipient_id: "#{@user.id}").each do |p|
+      dollars_owed += p.amount
+    end
+
+    dollars_due = 0
+    Payment.where(sender_id: "#{@user.id}").each do |p|
+      dollars_due += p.amount
+    end
+
+    @net_total = (dollars_owed - dollars_due)
   end
+
 
   # GET /payments/1
   # GET /payments/1.json
   def show
+    @payment = Payment.find_by_id()
   end
 
   # GET /payments/new
