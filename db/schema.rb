@@ -25,11 +25,11 @@ ActiveRecord::Schema.define(version: 20151028205117) do
     t.string   "title"
     t.integer  "recipient_id"
     t.integer  "sender_id"
-    t.decimal  "amount",       precision: 2
+    t.decimal  "amount",       precision: 16, scale: 2
     t.integer  "type_id"
     t.text     "note"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   create_table "types", force: :cascade do |t|
