@@ -24,7 +24,7 @@ class PaymentsController < ApplicationController
   # GET /payments/1
   # GET /payments/1.json
   def show
-    @payment = Payment.find_by_id()
+    @payment = Payment.find_by_id(@payment.id)
   end
 
   # GET /payments/new
@@ -43,8 +43,8 @@ class PaymentsController < ApplicationController
 
     respond_to do |format|
       if @payment.save
-        format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
-        format.json { render :show, status: :created, location: @payment }
+        format.html { redirect_to payments_path, notice: 'Payment was successfully created.' }
+        format.json { render :index, status: :created, location: @payment }
       else
         format.html { render :new }
         format.json { render json: @payment.errors, status: :unprocessable_entity }
