@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get 'login' => 'users#login', as: :login
 
+  get 'signup' => 'users#new', as: :signup
+
   post '/login' => 'users#authenticate'
 
   delete 'logout/:id' => "users#logout", as: :logout

@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Se12PaymentNew</title>
+  <title>Payment Tracker</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <%= csrf_meta_tags %>
 </head>
-<body> 
+<body class="<%= yield (:body_class) %>"> 
 
 <div class="container">
-  <% if current_user.present? %>
+
+  <% if !session[:user_id].nil? %>
     <div class="pull-right">
     	<h3>
     		<%= "Hi, #{current_user.first_name}!" %> |
@@ -18,7 +20,8 @@
     </div>
   <% end %>
   
-<%= yield %>
+  <%= yield %>
+</div>
 
 </body>
 </html>

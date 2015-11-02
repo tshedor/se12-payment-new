@@ -1,19 +1,26 @@
-<%= form_tag "/login" do %>
-<div class="cred-container">
-<%= label_tag("Email") %>
-<%= text_field_tag 'email', nil, :placeholder => 'test@email.com' %>
+<% content_for :body_class, "login-page" %>
+
+<%= form_tag "/login", :class=>"login-form" do %>
+
+<div class="input-group login-email validate-email" data-validate="email" >
+<%= text_field_tag 'email', nil, :placeholder => 'email', class: "form-control", :required=>true %>
+<span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
 </div>
 
-<div class="cred-container">
-<%= label_tag("Password") %>
-<%= password_field_tag 'password', nil, :placeholder => '************' %>
+<div class="input-group login-password" data-validate="length" data-length="6">
+<%= password_field_tag 'password', nil, :placeholder => 'password', class: "form-control", :required=>true %>
+<span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
 </div>  
 
-<% if @errors.present? %>
-    <div id="error">
-        <p><%= @errors %></p>
-    </div>
-  <% end %>
 
-<%= submit_tag("Login") %>
+<%= submit_tag "Log in", class: "btn btn-lg btn-primary btn-block"  %>
+
+<p class="signup-link">New user? <%= link_to "Register", signup_path %></p>
+
+<% flash.each do |type, message| %>
+  <div class="alert <%= bootstrap_class_for(type) %> fade in error-message">
+    <%= message %>
+  </div>
+<% end %>
+
 <% end %>

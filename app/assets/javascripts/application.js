@@ -14,3 +14,36 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+    $('.input-group input[required]').on('keyup change', function() {
+		var $form = $(this).closest('form'),
+            $group = $(this).closest('.input-group'),
+			$addon = $group.find('.input-group-addon'),
+			$icon = $addon.find('span'),
+			state = false;
+            
+    	if (!$group.data('validate')) {
+			state = $(this).val() ? true : false;
+		}else if ($group.data('validate') == "email") {
+			state = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test($(this).val())
+		}else if ($group.data('validate') == "length") {
+			state = $(this).val().length >= $group.data('length') ? true : false;
+		}
+
+		if (state) {
+				$addon.removeClass('danger');
+				$addon.addClass('success');
+				$icon.attr('class', 'glyphicon glyphicon-ok');
+		}else{
+				$addon.removeClass('success');
+				$addon.addClass('danger');
+				$icon.attr('class', 'glyphicon glyphicon-remove');
+		}
+        
+	});
+    
+    $('.input-group input[required]').trigger('change');
+    
+    
+});

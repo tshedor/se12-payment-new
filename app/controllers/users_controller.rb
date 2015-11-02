@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, only: [:index, :show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -28,6 +28,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        session[:user_id] = @user.id
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -65,9 +66,9 @@ class UsersController < ApplicationController
     @user = User.authenticate(params[:email], params[:password])
     if @user.present?
       session[:user_id] = @user.id
-      redirect_to user_path(@user.id)
+      redirect_to payments_path
     else
-      @errors = "Invalid login"
+      flash.now[:error] = "Invalid email/password combination"
       render :login
     end
   end
