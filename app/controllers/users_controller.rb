@@ -30,7 +30,9 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect_to payments_path
       else
-        flash.now[:error] = @user.errors.full_messages.first
+        @user.errors.full_messages.each do |message|
+          flash.now[:error] = message
+        end
         render :login
       end
   end
