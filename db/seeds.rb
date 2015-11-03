@@ -12,3 +12,9 @@ User.create(
 	email: "rowan@woof.com",
 	password: "password"
 	)
+User.create(
+	first_name: "Max",
+	last_name: "Ono",
+	email: "mono@example.com",
+	password: "password"
+	)

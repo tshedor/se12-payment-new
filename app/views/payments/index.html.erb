@@ -1,7 +1,16 @@
 <p id="notice"><%= notice %></p>
+<div class="welcome-message">
+  <%= "Hi, #{current_user.first_name}!" %>
+  <% if @net_total > 0 %>
+    <%= "You are owed $#{@net_total}." %>
+  <% elsif @net_total < 0 %>
+    <%= "You owe $#{@net_total.abs} total." %>
+  <% else %>
+    <%= "You are all square!" %>
+  <% end %>
+</div>
 
 <h1>Payments Due</h1>
-
 <table>
   <thead>
     <tr>

@@ -32,9 +32,7 @@ $(document).ready(function() {
 		}
 
 		if (state) {
-				$addon.removeClass('danger');
-				$addon.addClass('success');
-				$icon.attr('class', 'glyphicon glyphicon-ok');
+				document.getElementById("email")
 		}else{
 				$addon.removeClass('success');
 				$addon.addClass('danger');
@@ -46,4 +44,23 @@ $(document).ready(function() {
     $('.input-group input[required]').trigger('change');
     
     
+});
+
+$(function() {
+
+    $('#login-form-link').click(function(e) {
+		$("#login-form").delay(100).fadeIn(100);
+ 		$("#signup-form").fadeOut(100);
+		$('#signup-form-link').removeClass('active');
+		$(this).addClass('active');
+		e.preventDefault();
+	});
+	$('#signup-form-link').click(function(e) {
+		$("#signup-form").delay(100).fadeIn(100);
+ 		$("#login-form").fadeOut(100);
+		$('#login-form-link').removeClass('active');
+		$(this).addClass('active');
+		e.preventDefault();
+	});
+
 });

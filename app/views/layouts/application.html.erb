@@ -10,12 +10,10 @@
 <body class="<%= yield (:body_class) %>"> 
 
 <div class="container">
-
   <% if !session[:user_id].nil? %>
     <div class="pull-right">
     	<h3>
-    		<%= "Hi, #{current_user.first_name}!" %> |
-        <%= link_to "Logout", logout_path(current_user), method: :delete %>
+        <%= link_to "Logout", logout_path(session[:user_id]), method: :delete %>
     	</h3>
     </div>
   <% end %>

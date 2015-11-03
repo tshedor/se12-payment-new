@@ -6,11 +6,25 @@ class PaymentsController < ApplicationController
   def index
     @sender_payments = Payment.where(sender_id: "#{current_user.id}").all
     @recipient_payments = Payment.where(recipient_id: "#{current_user.id}").all
+
+    dollars_owed = 0
+    Payment.where(recipient_id: "#{@user.id}").each do |p|
+      dollars_owed += p.amount
+    end
+
+    dollars_due = 0
+    Payment.where(sender_id: "#{@user.id}").each do |p|
+      dollars_due += p.amount
+    end
+
+    @net_total = (dollars_owed - dollars_due)
   end
+
 
   # GET /payments/1
   # GET /payments/1.json
   def show
+    @payment = Payment.find_by_id(params[:id])
   end
 
   # GET /payments/new
@@ -20,6 +34,7 @@ class PaymentsController < ApplicationController
 
   # GET /payments/1/edit
   def edit
+    @payment = Payment.find_by_id(params[:id])
   end
 
   # POST /payments
@@ -29,8 +44,8 @@ class PaymentsController < ApplicationController
 
     respond_to do |format|
       if @payment.save
-        format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
-        format.json { render :show, status: :created, location: @payment }
+        format.html { redirect_to payments_path, notice: 'Payment was successfully created.' }
+        format.json { render :index, status: :created, location: @payment }
       else
         format.html { render :new }
         format.json { render json: @payment.errors, status: :unprocessable_entity }
