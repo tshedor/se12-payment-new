@@ -6,15 +6,15 @@
 
 // home page styles
 .landing-page {
-  background: url("IMG_8765.jpg") no-repeat center fixed;
-  background-size: cover;
+  background: url("concrete_seamless.png") center fixed;
 }
 .panel {
-  margin-top: 30%;
+  margin-top: 25%;
   background-color: transparent !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
 }
 .panel-login {
-  border-color: #ccc;
   .panel-body {
     padding-top: 5px;
     padding-left: 40px;
