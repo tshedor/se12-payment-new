@@ -11,25 +11,11 @@
 </div>
 
 <h1>Payments Due</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>To</th>
-      <th>Amount</th>
-      <th>Type</th>
-      <th>Note</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @sender_payments.each do |payment| %>
       <tr>
-        <td><%= payment.title %></td>
-        <td><%= payment.recipient_id %></td>
-        <td><%= payment.amount %></td>
-        <td><%= payment.type_id %></td>
+        <td><%= User.find_by_id(payment.recipient_id).first_name %></td>
+        <td><%= "$#{payment.amount}" %></td>
         <td><%= payment.note %></td>
         <td><%= link_to 'Show', payment %></td>
         <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
@@ -40,25 +26,11 @@
 </table>
 
 <h1>Payments Owed</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>From</th>
-      <th>Amount</th>
-      <th>Type</th>
-      <th>Note</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @recipient_payments.each do |payment| %>
       <tr>
-        <td><%= payment.title %></td>
-        <td><%= payment.sender_id %></td>
-        <td><%= payment.amount %></td>
-        <td><%= payment.type_id %></td>
+        <td><%= User.find_by_id(payment.sender_id).first_name %></td>
+        <td><%= "$#{payment.amount}" %></td>
         <td><%= payment.note %></td>
         <td><%= link_to 'Show', payment %></td>
         <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
