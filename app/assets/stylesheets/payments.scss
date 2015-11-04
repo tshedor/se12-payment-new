@@ -12,3 +12,11 @@
 	height: 100px;
 	vertical-align: middle;
 }
+
+@keyframes motion {
+	transform: translate(206px, 0) all 3s linear forwards;
+}
+
+svg {
+
+}

@@ -15,18 +15,29 @@
   <tbody>
     <% @recipient_payments.each do |payment| %>
       <tr>
-        <td><span class="payment-user"><%= User.find_by_id(payment.sender_id).first_name %></span></td>
-        <td><span class="owe-arrow">
+        <td class="payment-user"><%= User.find_by_id(payment.sender_id).first_name %></td>
+        <td class="owe-arrow">
           <svg width="300" height="100" xmlns="http://www.w3.org/2000/svg">
-           <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
-           <g>
-            <title>Layer 1</title>
-            <path fill="#00ff00" stroke="#00ff00" stroke-width="5" d="m187.36729,49.94437l44.11876,-51.366l44.11734,51.366l-22.05817,0l0,51.61359l-44.11879,0l0,-51.61359l-22.05914,0z" id="svg_1" transform="rotate(90 231.48533630371094,50.06817626953127) "/>
-            <rect fill="#00ff00" stroke="#00ff00" stroke-width="5" stroke-linejoin="null" stroke-linecap="null" x="12" y="28" width="206" height="44.48352" id="svg_2"/>
-           </g>
-          </svg>
-        </span></td>
-        <td><span class="payment-amount"><%= "$#{payment.amount}" %></span></td>
+            <g>
+              <polyline points="0,0 48.383,48.383 0,96.766" fill="#0f0">
+                <animate attributeName="points"
+                         from="0,0 48.383,48.383 0,96.766 "
+                         to="240,0 288.383,48.383 240,96.766 "
+                         dur="1.5s"
+                         repeatCount="forwards"
+                         fill="freeze"/>
+                         </polyline>
+              <rect fill="#00ff00" stroke="#00ff00" stroke-width="5" stroke-linejoin="null" stroke-linecap="null" x="12" y="28" width="240" height="44.48352" id="svg_2">
+                <animate attributeType="XML"
+                           attributeName="width"
+                           from="0" to="240"
+                           dur="1.5s"
+                           repeatCount="forwards"
+                           fill="freeze"/>
+              </rect>
+            </g>
+          </svg></td>
+        <td class="payment-amount"><%= "$#{payment.amount}" %></td>
         <td><%= payment.note %></td>
         <td><%= link_to 'Show', payment %></td>
         <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
@@ -41,18 +52,30 @@
   <tbody class="payment-table">
     <% @sender_payments.each do |payment| %>
       <tr>
-        <td><span class="payment-amount"><%= "$#{payment.amount}" %></span></td>
-        <td><span class="owe-arrow">
+        <td class="payment-amount"><%= "$#{payment.amount}" %></td>
+        <td class="owe-arrow">
           <svg width="300" height="100" xmlns="http://www.w3.org/2000/svg">
-           <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
-           <g>
-            <title>Layer 1</title>
-            <path fill="#ff0000" stroke="#ff0000" stroke-width="5" d="m187.36729,49.94437l44.11876,-51.366l44.11734,51.366l-22.05817,0l0,51.61359l-44.11879,0l0,-51.61359l-22.05914,0z" id="svg_1" transform="rotate(90 231.4853515625,50.06816864013674) "/>
-            <rect fill="#ff0000" stroke="#ff0000" stroke-width="5" stroke-linejoin="null" stroke-linecap="null" x="12" y="28" width="206" height="44.48352" id="svg_2"/>
-           </g>
+            <g>
+              <polyline points="0,0 48.383,48.383 0,96.766" fill="#f00">
+                <animate attributeName="points"
+                         from="0,0 48.383,48.383 0,96.766 "
+                         to="240,0 288.383,48.383 240,96.766 "
+                         dur="1.5s"
+                         repeatCount="forwards"
+                         fill="freeze"/>
+              </polyline>
+              <rect fill="#f00" stroke="#f00" stroke-width="5" stroke-linejoin="null" stroke-linecap="null" x="12" y="28" width="240" height="44.48352" id="svg_2">
+                <animate attributeType="XML"
+                         attributeName="width"
+                         from="0" to="240"
+                         dur="1.5s"
+                         repeatCount="forwards"
+                         fill="freeze"/>
+              </rect>
+            </g>
           </svg>
-        </span></td>
-        <td><span class="payment-user"><%= User.find_by_id(payment.recipient_id).first_name %></span></td>
+        </td>
+        <td class="payment-user"><%= User.find_by_id(payment.recipient_id).first_name %></td>
         <td><%= payment.note %></td>
         <td><%= link_to 'Show', payment %></td>
         <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
