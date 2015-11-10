@@ -14,10 +14,10 @@
   </span>
 </div>
 
-<div class="new-payment-link override-a"><%= link_to 'Add New Payment', new_payment_path %></div>
+<div class="new-payment-link override-a"><%= link_to 'Add Payment', new_payment_path, :class=>"btn btn-default" %></div>
 
 <table class="payment-table">
-<h1 class="table-title" >Money You Are Owed</h1>
+<h1 class="table-title owed-table" >Money You Are Owed</h1>
   <tbody>
     <% @recipient_payments.each do |payment| %>
       <tr>
@@ -65,7 +65,7 @@
 </table>
 
 <table class="payment-table">
-<h1 class="table-title" >Money You Owe</h1>
+<h1 class="table-title owe-table" >Money You Owe</h1>
   <tbody class="payment-table">
     <% @sender_payments.each do |payment| %>
       <tr>
