@@ -5,13 +5,13 @@
 
 
 // payment index styles
-.override-a a {
+.override-a a, .logout-link a {
 	text-decoration: none !important;
 	background-color: inherit !important;
 	color: #666;
-	.override-a a:hover {
-		color: #D9D9D9 !important;
-	}
+}
+.override-a a:hover, .logout-link a:hover {
+	color: #D9D9D9 !important;
 }
 
 .payment-index {
