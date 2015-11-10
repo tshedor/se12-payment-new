@@ -17,19 +17,15 @@
   </div>  
   <div class="field">
     <%= f.label :sender_id %><br>
-    <%= f.number_field :sender_id %>
+    <%= f.collection_select :sender_id, User.all, :id, :first_name %>
   </div>
   <div class="field">
     <%= f.label :recipient_id %><br>
-    <%= f.number_field :recipient_id %>
+    <%= f.collection_select :recipient_id, User.all, :id, :first_name %>
   </div>
   <div class="field">
     <%= f.label :amount %><br>
     <%= f.text_field :amount %>
-  </div>
-  <div class="field">
-    <%= f.label :type_id %><br>
-    <%= f.number_field :type_id %>
   </div>
   <div class="field">
     <%= f.label :note %><br>
