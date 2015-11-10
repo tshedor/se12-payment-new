@@ -1,3 +1,73 @@
 // Place all the styles related to the Payments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import url(https://fonts.googleapis.com/css?family=Roboto:700italic,500,300);
+
+
+// payment index styles
+.override-a a, .logout-link a {
+	text-decoration: none !important;
+	background-color: inherit !important;
+	color: #666;
+}
+.override-a a:hover, .logout-link a:hover {
+	color: #C9C9C9 !important;
+}
+
+.payment-index {
+	background: url("footer_lodyas.png") center fixed;
+	margin: auto;
+	color: #C9C9C9;
+}
+
+.payment-table {
+	margin: auto;
+	margin-bottom: 10px;
+	td {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 20px;
+	vertical-align: middle;
+	}
+}
+
+.welcome-message {
+	width: 100%;
+	text-align: center;
+	margin-top: 9%;
+	.greeting {
+		font-family: 'Roboto', sans-serif;
+		font-weight: 700;
+		font-style: italic;
+		font-size: 80px;
+	}
+	.owe-message {
+		font-family: 'Roboto', sans-serif;
+		font-weight: 300;
+		font-size: 40px;
+	}
+}
+
+.table-title {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 700;
+	font-style: italic;
+	margin: 20px 0 20px 180px;
+}
+
+.links {
+	height: 25px;
+	text-align: right;
+}
+
+.new-payment-link {
+	width: 100%;
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 30px;
+	font-size: 20px;
+}
+
+.spacer {
+	height: 30px;
+}

@@ -1,6 +1,9 @@
+<% content_for :body_class, "payment-index" %>
 <p id="notice"><%= notice %></p>
 <div class="welcome-message">
-  <%= "Hi, #{current_user.first_name}!" %>
+  <span class="greeting"><%= "Hi, #{current_user.first_name}!" %></span>
+  <br />
+  <span class="owe-message">
   <% if @net_total > 0 %>
     <%= "You are owed $#{@net_total}." %>
   <% elsif @net_total < 0 %>
@@ -8,66 +11,104 @@
   <% else %>
     <%= "You are all square!" %>
   <% end %>
+  </span>
 </div>
 
-<h1>Payments Due</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>To</th>
-      <th>Amount</th>
-      <th>Type</th>
-      <th>Note</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="new-payment-link override-a"><%= link_to 'Add Payment', new_payment_path, :class=>"btn btn-default" %></div>
 
-  <tbody>
-    <% @sender_payments.each do |payment| %>
-      <tr>
-        <td><%= payment.title %></td>
-        <td><%= payment.recipient_id %></td>
-        <td><%= payment.amount %></td>
-        <td><%= payment.type_id %></td>
-        <td><%= payment.note %></td>
-        <td><%= link_to 'Show', payment %></td>
-        <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
-        <td><%= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<h1>Payments Owed</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>From</th>
-      <th>Amount</th>
-      <th>Type</th>
-      <th>Note</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
+<table class="payment-table">
+<h1 class="table-title owed-table" >Money You Are Owed</h1>
   <tbody>
     <% @recipient_payments.each do |payment| %>
       <tr>
-        <td><%= payment.title %></td>
-        <td><%= payment.sender_id %></td>
-        <td><%= payment.amount %></td>
-        <td><%= payment.type_id %></td>
+        <td class="payment-user"><%= User.find_by_id(payment.sender_id).first_name %></td>
+        <td class="owe-arrow">
+          <svg width="300" height="70" xmlns="http://www.w3.org/2000/svg">
+            <g>
+              <polyline points="0,0 28.383,34.383 0,66.766" fill="#0f0">
+                <animate attributeName="points"
+                         from="0,0 28.383,34.383 0,66.766 "
+                         to="50,0 78.383,34.383 50,66.766 "
+                         dur="1s"
+                         repeatCount="forwards"
+                         fill="freeze"/>
+              </polyline>
+              <polyline points="0,0 28.383,34.383 0,66.766" fill="#0f0">
+                <animate attributeName="points"
+                         from="0,0 28.383,34.383 0,66.766 "
+                         to="130,0 158.383,34.383 130,66.766 "
+                         dur="1s"
+                         repeatCount="forwards"
+                         fill="freeze"/>
+              </polyline>
+              <polyline points="0,0 28.383,34.383 0,66.766" fill="#0f0">
+                <animate attributeName="points"
+                         from="0,0 28.383,34.383 0,66.766 "
+                         to="210,0 238.383,34.383 210,66.766 "
+                         dur="1s"
+                         repeatCount="forwards"
+                         fill="freeze"/>
+              </polyline>
+            </g>
+          </svg></td>
+        <td class="payment-amount"><%= "$#{payment.amount}" %></td>
         <td><%= payment.note %></td>
-        <td><%= link_to 'Show', payment %></td>
-        <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
-        <td><%= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <tr class="links">
+        <td></td>
+        <td class="detail-link override-a"><%= link_to 'Details', payment %></td>
+        <td class="paid-link override-a"><%= link_to 'Paid', payment %></td> <!-- update when paid attribute is added to table -->
+      </tr>
+      <tr class="spacer"></tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table class="payment-table">
+<h1 class="table-title owe-table" >Money You Owe</h1>
+  <tbody class="payment-table">
+    <% @sender_payments.each do |payment| %>
+      <tr>
+        <td class="payment-user"><%= User.find_by_id(payment.recipient_id).first_name %></td>
+        <td class="owe-arrow">
+          <svg width="300" height="70" xmlns="http://www.w3.org/2000/svg">
+            <g>
+              <polyline points=" 300,0 271.617,34.383 300,66.766 " fill="#f00">
+                <animate attributeName="points"
+                         from=" 300,0 271.617,34.383 300,66.766 "
+                         to="240,0 211.383,34.383 240,66.766 "
+                         dur="1s"
+                         repeatCount="forwards"
+                         fill="freeze"/>
+              </polyline>
+              <polyline points=" 300,0 271.617,34.383 300,66.766 " fill="#f00">
+                <animate attributeName="points"
+                         from=" 300,0 271.617,34.383 300,66.766 "
+                         to="160,0 131.383,34.383 160,66.766 "
+                         dur="1s"
+                         repeatCount="forwards"
+                         fill="freeze"/>
+              </polyline>
+              <polyline points=" 300,0 271.617,34.383 300,66.766 " fill="#f00">
+                <animate attributeName="points"
+                         from=" 300,0 271.617,34.383 300,66.766 "
+                         to="80,0 51.383,34.383 80,66.766 "
+                         dur="1s"
+                         repeatCount="forwards"
+                         fill="freeze"/>
+              </polyline>
+            </g>
+          </svg>
+        </td>
+        <td class="payment-amount"><%= "$#{payment.amount}" %></td>
+        <td><%= payment.note %></td>
+      </tr>
+      <tr class="links">
+        <td></td>
+        <td class="detail-link override-a"><%= link_to 'Details', payment %></td>
+        <td class="paid-link override-a"><%= link_to 'Paid', payment %></td> <!-- update when paid attribute is added to table -->
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Payment', new_payment_path %>
