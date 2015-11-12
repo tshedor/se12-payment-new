@@ -5,6 +5,13 @@
 
 
 // home page styles
+.sign-in-error {
+  width: 85%;
+  margin: auto;
+  .errors {
+    list-style-type: none;
+  }
+}
 .landing-page {
   background: url("footer_lodyas.png") center fixed;
 }
