@@ -1,3 +1,4 @@
+<% content_for :body_class, "payment-new" %>
 <%= form_for(@payment) do |f| %>
   <% if @payment.errors.any? %>
     <div id="error_explanation">
@@ -11,27 +12,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>  
-  <div class="field">
-    <%= f.label :sender_id %><br>
-    <%= f.collection_select :sender_id, User.all, :id, :first_name %>
+  <div class="field form-group">
+    <%= f.label :sender_id %>
+    <%= f.collection_select :sender_id, User.all, :id, :first_name, { :include_blank=> true }, { :class=>"form-control" } %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :recipient_id %><br>
-    <%= f.collection_select :recipient_id, User.all, :id, :first_name %>
+    <%= f.collection_select :recipient_id, User.all, :id, :first_name, { :include_blank=> true }, { :class=>"form-control" } %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :amount %><br>
-    <%= f.text_field :amount %>
+    <%= f.text_field :amount, :class=>"form-control" %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :note %><br>
-    <%= f.text_area :note %>
+    <%= f.text_area :note, :class=>"form-control" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions form-group">
+    <%= f.submit 'Create',  :class=>"btn btn-default" %>
   </div>
 <% end %>
