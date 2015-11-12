@@ -13,6 +13,9 @@
 .override-a a:hover, .logout-link a:hover {
 	color: #C9C9C9 !important;
 }
+.override-a a:visited, .logout-link a:visited {
+	color: #666;
+}
 
 .payment-index {
 	background: url("footer_lodyas.png") center fixed;
