@@ -23,10 +23,10 @@
 <% end %>
   <% flash.each do |type, messages| %>
     <div class="alert <%= bootstrap_class_for(type) %> fade in error-message">
-      <% messages.each do |message| %>
         <ul class="errors">
+          <% messages.each do |message| %>
           <li><%= message %></li>
+          <% end %>
         </ul>
-      <% end %>
     </div>
   <% end %>
