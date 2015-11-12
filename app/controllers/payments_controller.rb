@@ -43,8 +43,8 @@ class PaymentsController < ApplicationController
     @payment = Payment.new(payment_params)
 
     if @payment.save
-      flash.now[:success] = "Payment created successfully!"
       redirect_to payments_path
+      flash.now[:success] = "Payment created successfully!"
     else
       flash.now[:error] = @payment.errors.full_messages
       render :new

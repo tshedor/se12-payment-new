@@ -9,9 +9,9 @@
   <br />
   <span class="owe-message">
   <% if @net_total > 0 %>
-    <%= "You are owed $#{@net_total}" %>
+    <%= "You are owed #{number_to_currency(@net_total)}" %>
   <% elsif @net_total < 0 %>
-    <%= "You owe $#{@net_total.abs} total." %>
+    <%= "You owe #{number_to_currency(@net_total.abs)} total." %>
   <% else %>
     <%= "You are all square!" %>
   <% end %>
@@ -56,7 +56,7 @@
               </polyline>
             </g>
           </svg></td>
-        <td class="payment-amount"><%= "$#{payment.amount}" %></td>
+        <td class="payment-amount"><%= "#{number_to_currency(payment.amount)}" %></td>
       </tr>
       <tr class="links">
         <td></td>
@@ -106,7 +106,7 @@
             </g>
           </svg>
         </td>
-        <td class="payment-amount"><%= "$#{payment.amount}" %></td>
+        <td class="payment-amount"><%= "#{number_to_currency(payment.amount)}" %></td>
       </tr>
       <tr class="links">
         <td></td>
