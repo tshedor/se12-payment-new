@@ -1,16 +1,5 @@
 <% content_for :body_class, "payment-new" %>
 <%= form_for(@payment) do |f| %>
-  <% if @payment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
-
-      <ul>
-      <% @payment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field form-group">
     <%= f.label :sender_id %>
@@ -32,3 +21,12 @@
     <%= f.submit 'Create',  :class=>"btn btn-default" %>
   </div>
 <% end %>
+  <% flash.each do |type, messages| %>
+    <div class="alert <%= bootstrap_class_for(type) %> fade in error-message">
+      <% messages.each do |message| %>
+        <ul class="errors">
+          <li><%= message %></li>
+        </ul>
+      <% end %>
+    </div>
+  <% end %>

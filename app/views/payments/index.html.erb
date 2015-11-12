@@ -1,11 +1,15 @@
 <% content_for :body_class, "payment-index" %>
-<p id="notice"><%= notice %></p>
+  <% flash.each do |type, messages| %>
+    <div class="alert <%= bootstrap_class_for(type) %> fade in error-message">
+      <%= message %>
+    </div>
+  <% end %>
 <div class="welcome-message">
   <span class="greeting"><%= "Hi, #{current_user.first_name}!" %></span>
   <br />
   <span class="owe-message">
   <% if @net_total > 0 %>
-    <%= "You are owed $#{@net_total}." %>
+    <%= "You are owed $#{@net_total}" %>
   <% elsif @net_total < 0 %>
     <%= "You owe $#{@net_total.abs} total." %>
   <% else %>
