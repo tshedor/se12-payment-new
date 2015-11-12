@@ -37,7 +37,7 @@
 .welcome-message {
 	width: 100%;
 	text-align: center;
-	margin-top: 6%;
+	margin-top: 3%;
 	.greeting {
 		font-family: 'Roboto', sans-serif;
 		font-weight: 700;
@@ -73,6 +73,14 @@
 
 .spacer {
 	height: 30px;
+}
+
+.alert-success {
+	width: 25%;
+	text-align: center;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 0px;
 }
 
 // new payment styles

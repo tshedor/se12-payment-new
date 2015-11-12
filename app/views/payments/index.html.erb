@@ -1,6 +1,6 @@
 <% content_for :body_class, "payment-index" %>
   <% flash.each do |type, message| %>
-    <div class="alert <%= bootstrap_class_for(type) %> fade in error-message">
+    <div class="alert <%= bootstrap_class_for(type) %> fade in">
       <%= message %>
     </div>
   <% end %>
