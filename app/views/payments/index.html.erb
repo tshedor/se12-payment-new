@@ -1,5 +1,5 @@
 <% content_for :body_class, "payment-index" %>
-  <% flash.each do |type, messages| %>
+  <% flash.each do |type, message| %>
     <div class="alert <%= bootstrap_class_for(type) %> fade in error-message">
       <%= message %>
     </div>
@@ -20,6 +20,7 @@
 
 <div class="new-payment-link override-a"><%= link_to 'Add Payment', new_payment_path, :class=>"btn btn-default" %></div>
 
+<% if @recipient_payments.present? %>
 <table class="payment-table">
 <h1 class="table-title owed-table" >Money You Are Owed</h1>
   <tbody>
@@ -66,7 +67,9 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
 
+<% if @sender_payments.present? %>
 <table class="payment-table">
 <h1 class="table-title owe-table" >Money You Owe</h1>
   <tbody class="payment-table">
@@ -113,4 +116,5 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
 
