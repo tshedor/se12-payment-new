@@ -18,7 +18,7 @@
   </span>
 </div>
 
-<div class="new-payment-link override-a"><%= link_to 'Add Payment', new_payment_path, :class=>"btn btn-default" %></div>
+<div class="new-payment-link override-link"><%= link_to 'Add Payment', new_payment_path, :class=>"btn btn-default" %></div>
 
 <% if @recipient_payments.present? %>
 <table class="payment-table">
@@ -60,8 +60,8 @@
       </tr>
       <tr class="links">
         <td></td>
-        <td class="detail-link override-a"><%= link_to 'Details', payment %></td>
-        <td class="paid-link override-a"><%= link_to 'Paid', '#' %></td> <!-- update when paid attribute is added to table -->
+        <td class="detail-link override-link"><%= link_to 'Details', payment %></td>
+        <td class="paid-link override-link"><%= link_to 'Paid', '#' %></td> <!-- update when paid attribute is added to table -->
       </tr>
       <tr class="spacer"></tr>
     <% end %>
@@ -110,8 +110,8 @@
       </tr>
       <tr class="links">
         <td></td>
-        <td class="detail-link override-a"><%= link_to 'Details', payment %></td>
-        <td class="paid-link override-a"><%= link_to 'Paid', '#' %></td> <!-- update when paid attribute is added to table -->
+        <td class="detail-link override-link"><%= link_to 'Details', payment %></td>
+        <td class="paid-link override-link"><%= link_to 'Paid', '#' %></td> <!-- update when paid attribute is added to table -->
       </tr>
     <% end %>
   </tbody>

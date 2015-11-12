@@ -5,19 +5,19 @@
 
 
 // payment index styles
-.override-a a, .logout-link a {
+.override-a a, .override-link a {
 	text-decoration: none !important;
 	background-color: inherit !important;
 	color: #666;
 }
-.override-a a:hover, .logout-link a:hover {
+.override-a a:hover, .override-link a:hover {
 	color: #C9C9C9 !important;
 }
-.override-a a:visited, .logout-link a:visited {
+.override-a a:visited, .override-link a:visited {
 	color: #666;
 }
 
-.payment-index {
+.payment-index, .payment-new {
 	background: url("footer_lodyas.png") center fixed;
 	margin: auto;
 	color: #C9C9C9;
@@ -86,7 +86,4 @@
 // new payment styles
 .errors {
 	list-style-type: none;
-}
-.payment-new {
-	background: url("footer_lodyas.png") center fixed;
 }
