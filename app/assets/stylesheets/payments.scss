@@ -37,7 +37,7 @@
 .welcome-message {
 	width: 100%;
 	text-align: center;
-	margin-top: 3%;
+	display: inline-block;
 	.greeting {
 		font-family: 'Roboto', sans-serif;
 		font-weight: 700;
@@ -86,4 +86,7 @@
 // new payment styles
 .errors {
 	list-style-type: none;
+}
+.payment-new {
+	background: url("footer_lodyas.png") center fixed;
 }
