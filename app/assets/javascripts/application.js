@@ -43,6 +43,40 @@ $(document).ready(function() {
     
     $('.input-group input[required]').trigger('change');
     
+
+  $('.js-update-paid').click(function(e) {
+  	e.preventDefault();
+
+  	var $this = $(this);
+  	var payment_id = $this.attr('data-payment')
+
+  	$.ajax({
+  		url: '/paid',
+  		method: 'POST',
+  		dataType: 'json',
+  		data: { id: payment_id },
+  		complete: function(resp) {
+
+  			var $fake_flash = $('<div />', { 
+  				text: resp.responseJSON.msg,
+  				class: 'alert alert-danger fade in'
+  			});
+
+  			if(resp.responseJSON.msg === true) {
+	  			$('.payment-' + payment_id).remove();
+
+	  			$fake_flash.attr('class', 'alert alert-success fade in');
+	  			$fake_flash.text('Successfully paid');
+	  		}
+
+  			$('.welcome-message').before($fake_flash);
+
+  			setTimeout(function() {
+  				$('.alert').remove();
+  			}, 3000);
+  		}
+  	})
+  })
     
 });
 
@@ -62,5 +96,12 @@ $(function() {
 		$(this).addClass('active');
 		e.preventDefault();
 	});
+
+	if($('.errors').length) {
+		var errors_text = $('.errors').text().trim();
+		if(errors_text.indexOf('Invalid email/password combination') === -1) {
+			$('#signup-form-link').click();
+		}
+	}
 
 });

@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   post '/login' => 'users#authenticate'
 
+  post '/paid' => 'payments#paid', as: 'paid'
+
   delete 'logout/:id' => "users#logout", as: :logout
 
   # Example of regular route:
