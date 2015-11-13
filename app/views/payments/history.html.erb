@@ -1,3 +1,5 @@
+<% content_for :body_class, "payment-page" %>
+
 <% if @history.present? %>
 <table class="payment-table">
 <h1 class="table-title owed-table">Payment History</h1>
@@ -7,12 +9,29 @@
       <tr class="payment-<%= payment.id %>">
       <% if payment.sender_id == current_user.id %>
         <td class="payment-user"><%= User.find_by_id(payment.recipient_id).first_name %></td>   
-          <%= render 'red_arrow' %>
+        <td class="owe-arrow">
+          <svg width="300" height="70" xmlns="http://www.w3.org/2000/svg">
+            <g>
+              <polyline points=" 240,0 211.383,34.383 240,66.766 " fill="#f00"></polyline>
+              <polyline points=" 160,0 131.383,34.383 160,66.766 " fill="#f00"></polyline>
+              <polyline points=" 80,0 51.383,34.383 80,66.766 " fill="#f00"></polyline>
+            </g>
+          </svg>
+        </td>
         <% else %> 
         <td class="payment-user"><%= User.find_by_id(payment.sender_id).first_name %></td>  
-          <%= render 'green_arrow' %>
+        <td class="owe-arrow">
+          <svg width="300" height="70" xmlns="http://www.w3.org/2000/svg"><
+            <g>
+              <polyline points=" 50,0 78.383,34.383 50,66.766 " fill="#0f0"></polyline>
+              <polyline points=" 130,0 158.383,34.383 130,66.766 " fill="#0f0"></polyline>
+              <polyline points=" 210,0 238.383,34.383 210,66.766 " fill="#0f0"></polyline>
+            </g>
+          </svg>
+        </td>
         <% end %>
         <td class="payment-amount"><%= "#{number_to_currency(payment.amount)}" %></td>
+        <td class="paid-date"><%= payment.updated_at.strftime("%m/%d/%Y") %></td>
       </tr>
       <tr class="spacer"></tr>
     <% end %>

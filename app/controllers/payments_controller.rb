@@ -87,6 +87,7 @@ class PaymentsController < ApplicationController
 
   def history
     @history = Payment.where("(sender_id = ? OR recipient_id = ?) AND paid = ?", "#{current_user.id}", "#{current_user.id}", true )
+    @history = @history.sort.reverse
   end
 
   private

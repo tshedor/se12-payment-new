@@ -17,7 +17,7 @@
 	color: #666;
 }
 
-.payment-index, .payment-new {
+.payment-page, .payment-new {
 	background: url("footer_lodyas.png") center fixed;
 	margin: auto;
 	color: #C9C9C9;
@@ -122,4 +122,9 @@
 	.errors {
 		list-style-type: none;
 	}
+}
+
+// payment history styles
+.paid-date {
+	padding-left: 35px;
 }
