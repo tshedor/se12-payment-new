@@ -106,3 +106,7 @@ $(function() {
 	}
 
 });
+
+jQuery( function($) {
+    $('a').tooltip();
+});

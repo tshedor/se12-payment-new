@@ -61,7 +61,7 @@
       </tr>
       <tr class="links payment-<%= payment.id %>">
         <td></td>
-        <td class="detail-link override-link"><%= link_to 'Details', payment %></td>
+        <td class="detail-link override-link"><%= link_to 'Details', "#", "data-toggle" => "tooltip", "data-placement" => "bottom", "title" => "#{payment.note}" %></td>
         <td class="paid-link override-link">
           <div id="paid-msg"></div>
           <%= link_to 'Paid', '#', class: 'js-update-paid', data: { payment: payment.id } %></td>
@@ -113,7 +113,7 @@
       </tr>
       <tr class="links payment-<%= payment.id %>">
         <td></td>
-        <td class="detail-link override-link"><%= link_to 'Details', payment %></td>
+        <td class="detail-link override-link"><%= link_to 'Details', "#", "data-toggle" => "tooltip", "data-placement" => "bottom", "title" => "#{payment.note}" %></td>
         <td class="paid-link override-link">
           <div id="paid-msg"></div>
           <%= link_to 'Paid', '#', class: 'js-update-paid', data: { payment: payment.id } %></td>
