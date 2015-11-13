@@ -18,7 +18,8 @@
   </span>
 </div>
 
-<div class="new-payment-link override-link"><%= link_to 'Add Payment', new_payment_path, :class=>"btn btn-default" %></div>
+<div class="new-payment-link override-link"><%= link_to 'Add Payment', new_payment_path, :class=>"btn btn-default" %>
+<%= link_to 'Payment History', "#", :class=>"btn btn-default" %></div>
 
 <% if @recipient_payments.present? %>
 <table class="payment-table">
