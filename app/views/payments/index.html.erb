@@ -28,35 +28,7 @@
     <% @recipient_payments.each do |payment| %>
       <tr class="payment-<%= payment.id %>">
         <td class="payment-user"><%= User.find_by_id(payment.sender_id).first_name %></td>
-        <td class="owe-arrow">
-          <svg width="300" height="70" xmlns="http://www.w3.org/2000/svg">
-            <g>
-              <polyline points="0,0 28.383,34.383 0,66.766" fill="#0f0">
-                <animate attributeName="points"
-                         from="0,0 28.383,34.383 0,66.766 "
-                         to="50,0 78.383,34.383 50,66.766 "
-                         dur="1s"
-                         repeatCount="forwards"
-                         fill="freeze"/>
-              </polyline>
-              <polyline points="0,0 28.383,34.383 0,66.766" fill="#0f0">
-                <animate attributeName="points"
-                         from="0,0 28.383,34.383 0,66.766 "
-                         to="130,0 158.383,34.383 130,66.766 "
-                         dur="1s"
-                         repeatCount="forwards"
-                         fill="freeze"/>
-              </polyline>
-              <polyline points="0,0 28.383,34.383 0,66.766" fill="#0f0">
-                <animate attributeName="points"
-                         from="0,0 28.383,34.383 0,66.766 "
-                         to="210,0 238.383,34.383 210,66.766 "
-                         dur="1s"
-                         repeatCount="forwards"
-                         fill="freeze"/>
-              </polyline>
-            </g>
-          </svg></td>
+        <%= render 'green_arrow' %>
         <td class="payment-amount"><%= "#{number_to_currency(payment.amount)}" %></td>
       </tr>
       <tr class="links payment-<%= payment.id %>">
@@ -79,36 +51,7 @@
     <% @sender_payments.each do |payment| %>
       <tr class="payment-<%= payment.id %>">
         <td class="payment-user"><%= User.find_by_id(payment.recipient_id).first_name %></td>
-        <td class="owe-arrow">
-          <svg width="300" height="70" xmlns="http://www.w3.org/2000/svg">
-            <g>
-              <polyline points=" 300,0 271.617,34.383 300,66.766 " fill="#f00">
-                <animate attributeName="points"
-                         from=" 300,0 271.617,34.383 300,66.766 "
-                         to="240,0 211.383,34.383 240,66.766 "
-                         dur="1s"
-                         repeatCount="forwards"
-                         fill="freeze"/>
-              </polyline>
-              <polyline points=" 300,0 271.617,34.383 300,66.766 " fill="#f00">
-                <animate attributeName="points"
-                         from=" 300,0 271.617,34.383 300,66.766 "
-                         to="160,0 131.383,34.383 160,66.766 "
-                         dur="1s"
-                         repeatCount="forwards"
-                         fill="freeze"/>
-              </polyline>
-              <polyline points=" 300,0 271.617,34.383 300,66.766 " fill="#f00">
-                <animate attributeName="points"
-                         from=" 300,0 271.617,34.383 300,66.766 "
-                         to="80,0 51.383,34.383 80,66.766 "
-                         dur="1s"
-                         repeatCount="forwards"
-                         fill="freeze"/>
-              </polyline>
-            </g>
-          </svg>
-        </td>
+        <%= render 'red_arrow' %>
         <td class="payment-amount"><%= "#{number_to_currency(payment.amount)}" %></td>
       </tr>
       <tr class="links payment-<%= payment.id %>">
