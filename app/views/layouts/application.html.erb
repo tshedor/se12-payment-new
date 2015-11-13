@@ -13,6 +13,7 @@
   <% if !session[:user_id].nil? %>
     <div class="pull-right logout-link override-link">
     	<h3>
+        <%= link_to "Account", user_path(current_user)%> |
         <%= link_to "Logout", logout_path(session[:user_id]), method: :delete %>
     	</h3>
     </div>
