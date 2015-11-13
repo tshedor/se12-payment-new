@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get 'signup' => 'users#new', as: :signup
 
+  get '/history' => 'payments#history', as: :history
+
   post '/login' => 'users#authenticate'
 
   post '/paid' => 'payments#paid', as: 'paid'
