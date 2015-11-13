@@ -84,6 +84,25 @@
 }
 
 // new payment styles
+.payment-new h1 {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 700;
+	font-style: italic;
+	font-size: 60px;
+}
+
+.payment-form {
+	width: 45%;
+	margin: auto;
+	margin-top: 65px;
+}
+
+.cancel-link {
+	width: 45%;
+	text-align: right;
+	margin: auto;
+}
+
 .error-message {
 	width: 25%;
 	margin: auto;

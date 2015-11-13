@@ -1,5 +1,5 @@
 <% content_for :body_class, "payment-new" %>
-<%= form_for(@payment) do |f| %>
+<%= form_for(@payment, :html => { :class=>"payment-form" } ) do |f| %>
 
   <div class="field form-group">
     <%= f.label :sender_id %>
@@ -11,7 +11,10 @@
   </div>
   <div class="field form-group">
     <%= f.label :amount %><br>
-    <%= f.text_field :amount, :class=>"form-control" %>
+    <div class="input-group">
+      <span class="input-group-addon">$</span>
+      <%= f.text_field :amount, :class=>"form-control" %>
+    </div>
   </div>
   <div class="field form-group">
     <%= f.label :note %><br>
