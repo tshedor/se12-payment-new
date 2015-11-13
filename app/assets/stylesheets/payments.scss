@@ -17,11 +17,6 @@
 	color: #666;
 }
 
-.note {
-	text-align: center;
-	font-size: 10px;
-}
-
 .payment-index, .payment-new {
 	background: url("footer_lodyas.png") center fixed;
 	margin: auto;
@@ -37,6 +32,10 @@
 	font-size: 20px;
 	vertical-align: middle;
 	}
+}
+
+.payment-amount {
+	text-align: right;
 }
 
 .welcome-message {
@@ -88,7 +87,14 @@
 	margin-bottom: 0px;
 }
 
+.tooltip-inner {
+	font-size: 16px;
+	min-width: 150px;
+}
 
+.bottom-space {
+	padding-bottom: 50px;
+}
 
 // new payment styles
 .payment-new h1 {
