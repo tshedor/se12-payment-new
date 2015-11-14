@@ -67,6 +67,19 @@ $(document).ready(function() {
 	  			$('html,body').scrollTop(0);
 	  			$fake_flash.attr('class', 'alert alert-success fade in');
 	  			$fake_flash.text('Successfully paid');
+
+	  			var message;
+	  			if(resp.responseJSON.amount > 0) {
+	  				message = "You are owed $" + resp.responseJSON.amount;
+	  			}
+	  			else if(resp.responseJSON.amount < 0) {
+	  				message = "You owe $" + Math.abs(resp.responseJSON.amount) + " total.";
+	  			}
+	  			else {
+	  				message = "You're all square!";
+	  			}
+
+	  			$('.owe-message').text(message);
 	  		}
 
   			$('.welcome-message').before($fake_flash);
@@ -74,6 +87,13 @@ $(document).ready(function() {
   			setTimeout(function() {
   				$('.alert').remove();
   			}, 3000);
+
+  			$('table').each(function() {
+  				if(!$(this).children('tbody').find('tr').length) {
+  					$(this).prev().remove();
+  					$(this).remove();
+  				}
+  			})
   		}
   	})
   })

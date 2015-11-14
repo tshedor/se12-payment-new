@@ -38,7 +38,7 @@
           <div id="paid-msg"></div>
           <%= link_to 'Paid', '#', class: 'js-update-paid', data: { payment: payment.id } %></td>
       </tr>
-      <tr class="spacer"></tr>
+      <tr class="payment-<%= payment.id %> spacer"></tr>
     <% end %>
   </tbody>
 </table>
@@ -56,12 +56,12 @@
       </tr>
       <tr class="links payment-<%= payment.id %>">
         <td></td>
-        <td class="detail-link"><%= link_to 'Details', "#", "data-toggle" => "tooltip", "data-placement" => "bottom", "title" => "#{payment.note}" %></td>
+        <td class="detail-link"><%= link_to 'Details', edit_payment_path(payment), "data-toggle" => "tooltip", "data-placement" => "bottom", "title" => "#{payment.note}" %></td>
         <td class="paid-link">
           <div id="paid-msg"></div>
           <%= link_to 'Paid', '#', class: 'js-update-paid', data: { payment: payment.id } %></td>
       </tr>
-      <tr class="spacer"></tr>
+      <tr class="payment-<%= payment.id %> spacer"></tr>
     <% end %>
   </tbody>
 </table>

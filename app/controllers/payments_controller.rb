@@ -7,17 +7,7 @@ class PaymentsController < ApplicationController
     @sender_payments = Payment.where(sender_id: "#{current_user.id}", paid: false).all
     @recipient_payments = Payment.where(recipient_id: "#{current_user.id}", paid: false).all
 
-    dollars_owed = 0
-    Payment.where(recipient_id: "#{current_user.id}", paid: false).each do |p|
-      dollars_owed += p.amount
-    end
-
-    dollars_due = 0
-    Payment.where(sender_id: "#{current_user.id}", paid: false).each do |p|
-      dollars_due += p.amount
-    end
-
-    @net_total = (dollars_owed - dollars_due)
+    @net_total = current_user.owed
   end
 
 
@@ -87,7 +77,7 @@ class PaymentsController < ApplicationController
     payment = Payment.find(params[:id])
     unless payment.paid?
       payment.update_attribute(:paid, true)
-      render json: { msg: true }
+      render json: { msg: true, amount: current_user.owed }
     else
       render json: { msg: 'Already paid' }
     end
