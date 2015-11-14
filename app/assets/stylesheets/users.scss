@@ -15,12 +15,17 @@ a, .submit-button {
   text-decoration: none !important;
   background-color: inherit !important;
   color: #666 !important;
+  outline: none !important;
   &:hover, .submit-button:hover {
     color: #C9C9C9 !important;
     border-color: #C9C9C9 !important;
   }
   &:visited, .submit-button:visited {
     color: #666;
+    outline: none !important;
+  }
+  &:active, .submit-button:active {
+    outline: none !important;
   }
 }
 

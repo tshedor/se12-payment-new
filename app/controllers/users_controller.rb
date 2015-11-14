@@ -1,15 +1,11 @@
 class UsersController < ApplicationController
-  before_action :require_login, only: [:index, :show, :edit, :update, :destroy]
+  before_action :require_login, only: [:index, :edit, :update, :destroy]
+  before_action :require_admin, only: [:index, :new]
 
   # GET /users
   # GET /users.json
   def index
     @users = User.all
-  end
-
-  # GET /users/1
-  # GET /users/1.json
-  def show
   end
 
   # GET /users/new
@@ -45,16 +41,6 @@ class UsersController < ApplicationController
         flash.now[:error] = @user.errors.full_messages
         render :edit
       end
-  end
-
-  # DELETE /users/1
-  # DELETE /users/1.json
-  def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   def authenticate

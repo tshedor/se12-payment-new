@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151111202921) do
+ActiveRecord::Schema.define(version: 20151114072904) do
 
   create_table "payment_users", force: :cascade do |t|
     t.integer "payment_id"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20151111202921) do
     t.string "last_name"
     t.string "email"
     t.string "password_digest"
+    t.string "role",            default: "user"
   end
 
 end

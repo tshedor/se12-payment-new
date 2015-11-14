@@ -37,4 +37,12 @@ class User < ActiveRecord::Base
     (dollars_owed - dollars_due)
 	end
 
+	def is_user?
+		role == "user"
+	end
+
+	def is_admin?
+		role =="admin"
+	end
+
 end

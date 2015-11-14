@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
       redirect_to :login
     end
   end
+
+  def require_admin
+    redirect_to :payments unless current_user.is_admin?
+  end
 end

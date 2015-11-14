@@ -10,13 +10,6 @@ class PaymentsController < ApplicationController
     @net_total = current_user.owed
   end
 
-
-  # GET /payments/1
-  # GET /payments/1.json
-  def show
-    @payment = Payment.find_by_id(params[:id])
-  end
-
   # GET /payments/new
   def new
     @payment = Payment.new
@@ -57,16 +50,6 @@ class PaymentsController < ApplicationController
       else
         flash.now[:error] = @payment.errors.full_messages
         render :edit
-    end
-  end
-
-  # DELETE /payments/1
-  # DELETE /payments/1.json
-  def destroy
-    @payment.destroy
-    respond_to do |format|
-      format.html { redirect_to payments_url, notice: 'Payment was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
