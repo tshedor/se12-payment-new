@@ -54,6 +54,8 @@ class PaymentsController < ApplicationController
   # PATCH/PUT /payments/1
   # PATCH/PUT /payments/1.json
   def update
+    set_payment
+
     respond_to do |format|
       if @payment.update(payment_params)
         format.html { redirect_to @payment, notice: 'Payment was successfully updated.' }
