@@ -24,7 +24,6 @@ class UsersController < ApplicationController
 
       if @user.save
         session[:user_id] = @user.id
-        redirect_to payments_path
       else
         flash.now[:error] = @user.errors.full_messages
         end
