@@ -51,15 +51,12 @@ class PaymentsController < ApplicationController
   # PATCH/PUT /payments/1.json
   def update
     set_payment
-
-    respond_to do |format|
       if @payment.update(payment_params)
-        format.html { redirect_to @payment, notice: 'Payment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @payment }
+        redirect_to payments_path
+        flash[:success] = "Payment updated successfully!"
       else
-        format.html { render :edit }
-        format.json { render json: @payment.errors, status: :unprocessable_entity }
-      end
+        flash.now[:error] = @payment.errors.full_messages
+        render :edit
     end
   end
 
