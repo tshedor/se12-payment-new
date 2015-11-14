@@ -1,13 +1,13 @@
-<% content_for :body_class, "payment-new" %>
+<% content_for :body_class, "form-style" %>
 <%= form_for(@payment, :html => { :class=>"payment-form" } ) do |f| %>
 
   <div class="field form-group">
     <%= f.label :sender_id %>
-    <%= f.collection_select :sender_id, User.all, :id, :first_name, { :include_blank=> true }, { :class=>"form-control" } %>
+    <%= f.collection_select :sender_id, User.all, :id, :full_name, { :include_blank=> true }, { :class=>"form-control" } %>
   </div>
   <div class="field form-group">
     <%= f.label :recipient_id %><br>
-    <%= f.collection_select :recipient_id, User.all, :id, :first_name, { :include_blank=> true }, { :class=>"form-control" } %>
+    <%= f.collection_select :recipient_id, User.all, :id, :full_name, { :include_blank=> true }, { :class=>"form-control" } %>
   </div>
   <div class="field form-group">
     <%= f.label :amount %><br>
@@ -21,7 +21,7 @@
     <%= f.text_area :note, :class=>"form-control" %>
   </div>
   <div class="actions form-group">
-    <%= f.submit 'Create',  :class=>"btn btn-default" %>
+    <%= f.submit (f.object.new_record? ? "Create" : "Update"), :class=>"btn btn-default submit-button" %>
   </div>
 <% end %>
   <% flash.each do |type, messages| %>

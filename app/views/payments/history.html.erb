@@ -3,7 +3,7 @@
 <% if @history.present? %>
 <table class="payment-table">
 <h1 class="table-title owed-table">Payment History</h1>
-<div class="new-payment-link override-link"><%= link_to 'Back', payments_path, :class=>"btn btn-default" %></div>
+<div class="new-payment-link"><%= link_to 'Back', payments_path, :class=>"btn btn-default" %></div>
   <tbody>
     <% @history.each do |payment| %>
       <tr class="payment-<%= payment.id %>">

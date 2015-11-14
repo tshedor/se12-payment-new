@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// home page styles
+
 .sign-in-error {
   width: 85%;
   margin: auto;
@@ -11,19 +11,26 @@
   }
 }
 
-a {
+a, .submit-button {
   text-decoration: none !important;
   background-color: inherit !important;
-  color: #666;
-  &:hover {
+  color: #666 !important;
+  &:hover, .submit-button:hover {
     color: #C9C9C9 !important;
+    border-color: #C9C9C9 !important;
   }
-  &:visited {
+  &:visited, .submit-button:visited {
     color: #666;
   }
 }
 
-
+.actions {
+  font-size: 18px;
+  text-align: center;
+  .submit-button {
+    background-color: transparent !important;
+  }
+}
 
 body {
   background: url("footer_lodyas.png") center fixed;
@@ -33,6 +40,7 @@ body {
   font-weight: 300;
 }
 
+// login/register widget styles
 .panel {
   margin-top: 25%;
   background-color: transparent !important;

@@ -18,7 +18,7 @@
   </span>
 </div>
 
-<div class="new-payment-link override-link"><%= link_to 'Add Payment', new_payment_path, :class=>"btn btn-default" %>
+<div class="new-payment-link"><%= link_to 'Add Payment', new_payment_path, :class=>"btn btn-default" %>
 <%= link_to 'Payment History', history_path , :class=>"btn btn-default" %></div>
 
 <% if @recipient_payments.present? %>
@@ -33,8 +33,8 @@
       </tr>
       <tr class="links payment-<%= payment.id %>">
         <td></td>
-        <td class="detail-link override-link"><%= link_to 'Details', edit_payment_path(payment), "data-toggle" => "tooltip", "data-placement" => "bottom", "data-original-title" => "Note: #{payment.note}", "trigger"=>"hover focus"%></td>
-        <td class="paid-link override-link">
+        <td class="detail-link override-link"><%= link_to 'Details', edit_payment_path(payment), "data-toggle" => "tooltip", "data-placement" => "bottom", "data-original-title" => "#{payment.note}", "trigger"=>"hover focus"%></td>
+        <td class="paid-link">
           <div id="paid-msg"></div>
           <%= link_to 'Paid', '#', class: 'js-update-paid', data: { payment: payment.id } %></td>
       </tr>
@@ -56,8 +56,8 @@
       </tr>
       <tr class="links payment-<%= payment.id %>">
         <td></td>
-        <td class="detail-link override-link"><%= link_to 'Details', "#", "data-toggle" => "tooltip", "data-placement" => "bottom", "title" => "Note: #{payment.note}" %></td>
-        <td class="paid-link override-link">
+        <td class="detail-link"><%= link_to 'Details', "#", "data-toggle" => "tooltip", "data-placement" => "bottom", "title" => "#{payment.note}" %></td>
+        <td class="paid-link">
           <div id="paid-msg"></div>
           <%= link_to 'Paid', '#', class: 'js-update-paid', data: { payment: payment.id } %></td>
       </tr>
