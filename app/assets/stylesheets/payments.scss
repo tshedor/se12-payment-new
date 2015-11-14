@@ -5,29 +5,33 @@
 
 
 // payment index styles
-.override-a a, .override-link a {
+a {
 	text-decoration: none !important;
 	background-color: inherit !important;
 	color: #666;
-}
-.override-a a:hover, .override-link a:hover {
+&:hover {
 	color: #C9C9C9 !important;
-}
-.override-a a:visited, .override-link a:visited {
+	}
+&:visited {
 	color: #666;
+	}
 }
 
-.payment-page, .payment-new {
+body:not(.landing-page) {
 	background: url("footer_lodyas.png") center fixed;
 	margin: auto;
 	color: #C9C9C9;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
 }
 
 .payment-table {
 	margin: auto;
 	margin-bottom: 10px;
 	td {
-	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 	font-size: 20px;
 	vertical-align: middle;
@@ -43,20 +47,17 @@
 	text-align: center;
 	display: inline-block;
 	.greeting {
-		font-family: 'Roboto', sans-serif;
 		font-weight: 700;
 		font-style: italic;
 		font-size: 80px;
 	}
 	.owe-message {
-		font-family: 'Roboto', sans-serif;
 		font-weight: 300;
 		font-size: 40px;
 	}
 }
 
 .table-title {
-	font-family: 'Roboto', sans-serif;
 	font-weight: 700;
 	font-style: italic;
 	margin: 20px 0 20px 180px;
@@ -98,7 +99,6 @@
 
 // new payment styles
 .payment-new h1 {
-	font-family: 'Roboto', sans-serif;
 	font-weight: 700;
 	font-style: italic;
 	font-size: 60px;
