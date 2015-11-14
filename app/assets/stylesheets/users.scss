@@ -2,8 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-
 // home page styles
 .sign-in-error {
   width: 85%;
@@ -12,9 +10,29 @@
     list-style-type: none;
   }
 }
-.landing-page {
-  background: url("footer_lodyas.png") center fixed;
+
+a {
+  text-decoration: none !important;
+  background-color: inherit !important;
+  color: #666;
+  &:hover {
+    color: #C9C9C9 !important;
+  }
+  &:visited {
+    color: #666;
+  }
 }
+
+
+
+body {
+  background: url("footer_lodyas.png") center fixed;
+  margin: auto;
+  color: #C9C9C9;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
 .panel {
   margin-top: 25%;
   background-color: transparent !important;
@@ -48,7 +66,7 @@
   transition: all 0.1s linear;
 }
 .panel-login>.panel-heading a.active{
-  background-color: #C9C9C9;
+  color: #C9C9C9 !important;
 }
 .panel-login>.panel-heading hr{
   margin-top: 10px;
@@ -75,7 +93,17 @@
 }
 .btn {
   margin-top: 10px !important;
+  border-width: 2px !important;
 }
+
+.btn-default.active {
+  border-color: #C9C9C9 !important
+}
+
+.btn-default {
+  border-color: #666 !important;
+}
+
 .btn-login {
   background-color: #59B2E0 !important;
   outline: none;
@@ -85,7 +113,7 @@
   font-weight: normal;
   padding: 14px 0;
   text-transform: uppercase;
-  border-color: #59B2E6;
+  border-color: #59B2E6 !important;
 }
 .btn-login:hover,
 .btn-login:focus {
