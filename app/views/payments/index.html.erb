@@ -1,6 +1,6 @@
 <% content_for :body_class, "payment-page" %>
   <% flash.each do |type, message| %>
-    <div class="alert <%= bootstrap_class_for(type) %> fade in">
+    <div class="alert <%= bootstrap_class_for(type) %> fade in" id="flash">
       <%= message %>
     </div>
   <% end %>
@@ -66,5 +66,12 @@
   </tbody>
 </table>
 <div class="bottom-space"></div>
+<script type="text/javascript">
+$(document).ready(function(){
+  setTimeout(function(){
+    $('#flash').remove();
+  }, 5000);
+ })
+</script>
 <% end %>
 

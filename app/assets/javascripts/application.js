@@ -109,3 +109,9 @@ $(function() {
 jQuery( function($) {
     $('a').tooltip();
 });
+
+$(document).ready(function(){
+  setTimeout(function(){
+    $('#flash').remove();
+  }, 3000);
+ })
