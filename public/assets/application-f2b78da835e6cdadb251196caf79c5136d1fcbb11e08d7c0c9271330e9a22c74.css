@@ -1,0 +1,357 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:700italic,500,300);
+/* line 8, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/payments.scss */
+a {
+  text-decoration: none !important;
+  background-color: inherit !important;
+  color: #666;
+}
+/* line 12, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/payments.scss */
+a:hover {
+  color: #C9C9C9 !important;
+}
+/* line 15, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/payments.scss */
+a:visited {
+  color: #666;
+}
+
+/* line 20, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/payments.scss */
+body:not(.landing-page) {
+  background: url("footer_lodyas.png") center fixed;
+  margin: auto;
+  color: #C9C9C9;
+}
+
+/* line 26, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/payments.scss */
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+/* line 31, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/payments.scss */
+.payment-table {
+  margin: auto;
+  margin-bottom: 10px;
+}
+/* line 34, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/payments.scss */
+.payment-table td {
+  font-weight: 300;
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+/* line 41, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/payments.scss */
+.payment-amount {
+  text-align: right;
+}
+
+/* line 45, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/payments.scss */
+.welcome-message {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+/* line 49, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/payments.scss */
+.welcome-message .greeting {
+  font-weight: 700;
+  font-style: italic;
+  font-size: 80px;
+}
+/* line 54, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/payments.scss */
+.welcome-message .owe-message {
+  font-weight: 300;
+  font-size: 40px;
+}
+
+/* line 60, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/payments.scss */
+.table-title {
+  font-weight: 700;
+  font-style: italic;
+  margin: 20px 0 20px 180px;
+}
+
+/* line 66, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/payments.scss */
+.links {
+  height: 25px;
+  text-align: right;
+}
+
+/* line 71, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/payments.scss */
+.new-payment-link, .history-link {
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
+/* line 79, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/payments.scss */
+.spacer {
+  height: 30px;
+}
+
+/* line 83, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/payments.scss */
+.alert-success {
+  width: 25%;
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+/* line 91, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/payments.scss */
+.tooltip-inner {
+  font-size: 16px;
+  min-width: 150px;
+}
+
+/* line 96, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/payments.scss */
+.bottom-space {
+  padding-bottom: 50px;
+}
+
+/* line 101, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/payments.scss */
+.form-style h1 {
+  font-weight: 700;
+  font-style: italic;
+  font-size: 60px;
+}
+
+/* line 107, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/payments.scss */
+.payment-form {
+  width: 45%;
+  margin: auto;
+  margin-top: 65px;
+}
+
+/* line 113, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/payments.scss */
+.cancel-link {
+  width: 45%;
+  text-align: center;
+  margin: auto;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+/* line 121, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/payments.scss */
+.error-message {
+  width: 30%;
+  margin: auto;
+}
+/* line 124, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/payments.scss */
+.error-message .errors {
+  list-style-type: none;
+}
+
+/* line 130, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/payments.scss */
+.paid-date {
+  padding-left: 35px;
+}
+/* line 1, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/scaffolds.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 8, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/scaffolds.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+/* line 6, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+.sign-in-error {
+  width: 85%;
+  margin: auto;
+}
+/* line 9, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+.sign-in-error .errors {
+  list-style-type: none;
+}
+
+/* line 14, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+a, .submit-button {
+  text-decoration: none !important;
+  background-color: inherit !important;
+  color: #666 !important;
+  outline: none !important;
+}
+/* line 19, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+a:hover, a .submit-button:hover, .submit-button:hover, .submit-button .submit-button:hover {
+  color: #C9C9C9 !important;
+  border-color: #C9C9C9 !important;
+}
+/* line 23, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+a:visited, a .submit-button:visited, .submit-button:visited, .submit-button .submit-button:visited {
+  color: #666;
+  outline: none !important;
+}
+/* line 27, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+a:active, a .submit-button:active, .submit-button:active, .submit-button .submit-button:active {
+  outline: none !important;
+}
+
+/* line 32, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+.actions {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 5px !important;
+}
+/* line 36, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+.actions .submit-button {
+  background-color: transparent !important;
+}
+
+/* line 41, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+body {
+  background: url("footer_lodyas.png") center fixed;
+  margin: auto;
+  color: #C9C9C9;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+/* line 50, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+.panel {
+  margin-top: 25%;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+
+/* line 57, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+.panel-login .panel-body {
+  padding-top: 5px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+/* line 62, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+.panel-login .form-group {
+  margin-bottom: 8px;
+}
+
+/* line 66, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+.panel-login > .panel-heading {
+  color: #00415d;
+  border-color: #fff;
+  text-align: center;
+  border: none;
+  padding-bottom: 0px;
+  margin-bottom: 10px;
+}
+
+/* line 74, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+.panel-login > .panel-heading a {
+  font-size: 20px;
+  text-decoration: none;
+  color: #666;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+/* line 82, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+.panel-login > .panel-heading a.active {
+  color: #C9C9C9 !important;
+}
+
+/* line 85, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+.panel-login > .panel-heading hr {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  clear: both;
+  border: 0;
+  height: 1px;
+}
+
+/* line 92, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+.panel-login input[type="text"], .panel-login input[type="email"], .panel-login input[type="password"] {
+  height: 45px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+/* line 100, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+.panel-login input:hover,
+.panel-login input:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: #ccc;
+}
+
+/* line 108, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+.btn {
+  margin-top: 10px !important;
+  border-width: 2px !important;
+}
+
+/* line 113, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+.btn-default.active {
+  border-color: #C9C9C9 !important;
+}
+
+/* line 117, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+.btn-default {
+  border-color: #666 !important;
+}
+
+/* line 121, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+.btn-login {
+  background-color: #C9C9C9 !important;
+  outline: none;
+  color: #666 !important;
+  font-size: 14px;
+  height: auto;
+  font-weight: normal;
+  padding: 14px 0;
+  text-transform: uppercase;
+}
+
+/* line 131, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+.btn-login:hover,
+.btn-login:focus {
+  color: #C9C9C9 !important;
+  background-color: #666 !important;
+  border-color: #666 !important;
+}
+
+/* line 137, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+.btn-register {
+  background-color: #C9C9C9 !important;
+  outline: none;
+  color: #666 !important;
+  font-size: 14px;
+  height: auto;
+  font-weight: normal;
+  padding: 14px 0;
+  text-transform: uppercase;
+}
+
+/* line 147, /Users/maxono/src/se12-payment-new/app/assets/stylesheets/users.scss */
+.btn-register:hover,
+.btn-register:focus {
+  color: #C9C9C9 !important;
+  background-color: #666 !important;
+  border-color: #666 !important;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
