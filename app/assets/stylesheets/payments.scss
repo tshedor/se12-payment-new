@@ -5,51 +5,59 @@
 
 
 // payment index styles
-.override-a a, .logout-link a {
+a {
 	text-decoration: none !important;
 	background-color: inherit !important;
 	color: #666;
-}
-.override-a a:hover, .logout-link a:hover {
+&:hover {
 	color: #C9C9C9 !important;
+	}
+&:visited {
+	color: #666;
+	}
 }
 
-.payment-index {
+body:not(.landing-page) {
 	background: url("footer_lodyas.png") center fixed;
 	margin: auto;
 	color: #C9C9C9;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
 }
 
 .payment-table {
 	margin: auto;
 	margin-bottom: 10px;
 	td {
-	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 	font-size: 20px;
 	vertical-align: middle;
 	}
 }
 
+.payment-amount {
+	text-align: right;
+}
+
 .welcome-message {
 	width: 100%;
 	text-align: center;
-	margin-top: 9%;
+	display: inline-block;
 	.greeting {
-		font-family: 'Roboto', sans-serif;
 		font-weight: 700;
 		font-style: italic;
 		font-size: 80px;
 	}
 	.owe-message {
-		font-family: 'Roboto', sans-serif;
 		font-weight: 300;
 		font-size: 40px;
 	}
 }
 
 .table-title {
-	font-family: 'Roboto', sans-serif;
 	font-weight: 700;
 	font-style: italic;
 	margin: 20px 0 20px 180px;
@@ -60,7 +68,7 @@
 	text-align: right;
 }
 
-.new-payment-link {
+.new-payment-link, .history-link {
 	width: 100%;
 	text-align: center;
 	margin-top: 40px;
@@ -70,4 +78,55 @@
 
 .spacer {
 	height: 30px;
+}
+
+.alert-success {
+	width: 25%;
+	text-align: center;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 0px;
+}
+
+.tooltip-inner {
+	font-size: 16px;
+	min-width: 150px;
+}
+
+.bottom-space {
+	padding-bottom: 50px;
+}
+
+// new payment styles
+.form-style h1 {
+	font-weight: 700;
+	font-style: italic;
+	font-size: 60px;
+}
+
+.payment-form {
+	width: 45%;
+	margin: auto;
+	margin-top: 65px;
+}
+
+.cancel-link {
+	width: 45%;
+	text-align: center;
+	margin: auto;
+	font-size: 16px;
+	margin-bottom: 15px;
+}
+
+.error-message {
+	width: 30%;
+	margin: auto;
+	.errors {
+		list-style-type: none;
+	}
+}
+
+// payment history styles
+.paid-date {
+	padding-left: 35px;
 }

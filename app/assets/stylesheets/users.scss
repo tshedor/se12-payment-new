@@ -3,11 +3,50 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-
-// home page styles
-.landing-page {
-  background: url("footer_lodyas.png") center fixed;
+.sign-in-error {
+  width: 85%;
+  margin: auto;
+  .errors {
+    list-style-type: none;
+  }
 }
+
+a, .submit-button {
+  text-decoration: none !important;
+  background-color: inherit !important;
+  color: #666 !important;
+  outline: none !important;
+  &:hover, .submit-button:hover {
+    color: #C9C9C9 !important;
+    border-color: #C9C9C9 !important;
+  }
+  &:visited, .submit-button:visited {
+    color: #666;
+    outline: none !important;
+  }
+  &:active, .submit-button:active {
+    outline: none !important;
+  }
+}
+
+.actions {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 5px !important;
+  .submit-button {
+    background-color: transparent !important;
+  }
+}
+
+body {
+  background: url("footer_lodyas.png") center fixed;
+  margin: auto;
+  color: #C9C9C9;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+// login/register widget styles
 .panel {
   margin-top: 25%;
   background-color: transparent !important;
@@ -41,7 +80,7 @@
   transition: all 0.1s linear;
 }
 .panel-login>.panel-heading a.active{
-  background-color: #C9C9C9;
+  color: #C9C9C9 !important;
 }
 .panel-login>.panel-heading hr{
   margin-top: 10px;
@@ -68,39 +107,47 @@
 }
 .btn {
   margin-top: 10px !important;
+  border-width: 2px !important;
 }
+
+.btn-default.active {
+  border-color: #C9C9C9 !important
+}
+
+.btn-default {
+  border-color: #666 !important;
+}
+
 .btn-login {
-  background-color: #59B2E0 !important;
+  background-color: #C9C9C9 !important;
   outline: none;
-  color: #fff !important;
+  color: #666 !important;
   font-size: 14px;
   height: auto;
   font-weight: normal;
   padding: 14px 0;
   text-transform: uppercase;
-  border-color: #59B2E6;
 }
 .btn-login:hover,
 .btn-login:focus {
-  color: #fff;
-  background-color: #53A3CD !important;
-  border-color: #53A3CD !important;
+  color: #C9C9C9 !important;
+  background-color: #666 !important;
+  border-color: #666 !important;
 }
 .btn-register {
-  background-color: #59B2E0 !important;
+  background-color: #C9C9C9 !important;
   outline: none;
-  color: #fff !important;
+  color: #666 !important;
   font-size: 14px;
   height: auto;
   font-weight: normal;
   padding: 14px 0;
   text-transform: uppercase;
-  border-color: #1CB94A;
 }
 .btn-register:hover,
 .btn-register:focus {
-  color: #fff;
-  background-color: #53A3CD !important;
-  border-color: #1CA347 !important;
+  color: #C9C9C9 !important;
+  background-color: #666 !important;
+  border-color: #666 !important;
 }
 

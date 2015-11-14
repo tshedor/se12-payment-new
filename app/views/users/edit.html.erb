@@ -1,6 +1,16 @@
-<h1>Editing User</h1>
+<h1>User Details</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<div class="cancel-link">
+<%= link_to 'Back', payments_path %>
+</div>
+<% flash.each do |type, messages| %>
+  <div class="alert <%= bootstrap_class_for(type) %> fade in error-message">
+      <ul class="errors">
+        <% messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+  </div>
+<% end %>

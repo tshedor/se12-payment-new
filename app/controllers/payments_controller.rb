@@ -4,27 +4,10 @@ class PaymentsController < ApplicationController
   # GET /payments
   # GET /payments.json
   def index
-    @sender_payments = Payment.where(sender_id: "#{current_user.id}").all
-    @recipient_payments = Payment.where(recipient_id: "#{current_user.id}").all
+    @sender_payments = Payment.where(sender_id: "#{current_user.id}", paid: false).all
+    @recipient_payments = Payment.where(recipient_id: "#{current_user.id}", paid: false).all
 
-    dollars_owed = 0
-    Payment.where(recipient_id: "#{@user.id}").each do |p|
-      dollars_owed += p.amount
-    end
-
-    dollars_due = 0
-    Payment.where(sender_id: "#{@user.id}").each do |p|
-      dollars_due += p.amount
-    end
-
-    @net_total = (dollars_owed - dollars_due)
-  end
-
-
-  # GET /payments/1
-  # GET /payments/1.json
-  def show
-    @payment = Payment.find_by_id(params[:id])
+    @net_total = current_user.owed
   end
 
   # GET /payments/new
@@ -42,39 +25,47 @@ class PaymentsController < ApplicationController
   def create
     @payment = Payment.new(payment_params)
 
-    respond_to do |format|
+    if payment_params[:sender_id] != payment_params[:recipient_id]
       if @payment.save
-        format.html { redirect_to payments_path, notice: 'Payment was successfully created.' }
-        format.json { render :index, status: :created, location: @payment }
+        redirect_to payments_path
+        flash[:success] = "Payment created successfully!"
       else
-        format.html { render :new }
-        format.json { render json: @payment.errors, status: :unprocessable_entity }
+        flash.now[:error] = @payment.errors.full_messages
+        render :new
       end
+    else
+      flash.now[:error] = []
+      flash.now[:error] << "Sender and recipient must be different."
+      render :new
     end
   end
 
   # PATCH/PUT /payments/1
   # PATCH/PUT /payments/1.json
   def update
-    respond_to do |format|
+    set_payment
       if @payment.update(payment_params)
-        format.html { redirect_to @payment, notice: 'Payment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @payment }
+        redirect_to payments_path
+        flash[:success] = "Payment updated successfully!"
       else
-        format.html { render :edit }
-        format.json { render json: @payment.errors, status: :unprocessable_entity }
-      end
+        flash.now[:error] = @payment.errors.full_messages
+        render :edit
     end
   end
 
-  # DELETE /payments/1
-  # DELETE /payments/1.json
-  def destroy
-    @payment.destroy
-    respond_to do |format|
-      format.html { redirect_to payments_url, notice: 'Payment was successfully destroyed.' }
-      format.json { head :no_content }
+  def paid
+    payment = Payment.find(params[:id])
+    unless payment.paid?
+      payment.update_attribute(:paid, true)
+      render json: { msg: true, amount: current_user.owed }
+    else
+      render json: { msg: 'Already paid' }
     end
+  end
+
+  def history
+    @history = Payment.where("(sender_id = ? OR recipient_id = ?) AND paid = ?", "#{current_user.id}", "#{current_user.id}", true )
+    @history = @history.sort.reverse
   end
 
   private

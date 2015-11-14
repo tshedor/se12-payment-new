@@ -64,11 +64,15 @@
 				</div>
 			</div>
 		</div>
-							<% flash.each do |type, message| %>
-							  <div class="alert <%= bootstrap_class_for(type) %> fade in error-message">
-							    <%= message %>
-							  </div>
-							<% end %>
+			<% flash.each do |type, messages| %>
+		    <div class="alert <%= bootstrap_class_for(type) %> fade in sign-in-error">
+		        <ul class="errors">
+		          <% messages.each do |message| %>
+		          <li><%= message %></li>
+		          <% end %>
+		        </ul>
+		    </div>
+		  <% end %>
 	</div>
 </div>
 

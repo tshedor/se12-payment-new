@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028205117) do
+ActiveRecord::Schema.define(version: 20151114072904) do
 
   create_table "payment_users", force: :cascade do |t|
     t.integer "payment_id"
@@ -22,14 +22,13 @@ ActiveRecord::Schema.define(version: 20151028205117) do
   add_index "payment_users", ["user_id"], name: "index_payment_users_on_user_id"
 
   create_table "payments", force: :cascade do |t|
-    t.string   "title"
     t.integer  "recipient_id"
     t.integer  "sender_id"
     t.decimal  "amount",       precision: 16, scale: 2
-    t.integer  "type_id"
     t.text     "note"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
+    t.boolean  "paid",                                  default: false
   end
 
   create_table "types", force: :cascade do |t|
@@ -41,6 +40,7 @@ ActiveRecord::Schema.define(version: 20151028205117) do
     t.string "last_name"
     t.string "email"
     t.string "password_digest"
+    t.string "role",            default: "user"
   end
 
 end

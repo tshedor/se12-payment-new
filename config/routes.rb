@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :types
   resources :payment_users
-  resources :payments
-  resources :users
+  resources :payments, except: [:show, :destroy]
+  resources :users, except: [:show, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -13,7 +13,11 @@ Rails.application.routes.draw do
 
   get 'signup' => 'users#new', as: :signup
 
+  get '/history' => 'payments#history', as: :history
+
   post '/login' => 'users#authenticate'
+
+  post '/paid' => 'payments#paid', as: 'paid'
 
   delete 'logout/:id' => "users#logout", as: :logout
 

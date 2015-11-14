@@ -19,4 +19,30 @@ class User < ActiveRecord::Base
 	  return nil
 	end
 
+	def full_name 
+		"#{first_name} #{last_name}"
+	end
+
+	def owed
+    dollars_owed = 0
+    Payment.where(recipient_id: id, paid: false).each do |p|
+      dollars_owed += p.amount
+    end
+
+    dollars_due = 0
+    Payment.where(sender_id: id, paid: false).each do |p|
+      dollars_due += p.amount
+    end
+
+    (dollars_owed - dollars_due)
+	end
+
+	def is_user?
+		role == "user"
+	end
+
+	def is_admin?
+		role =="admin"
+	end
+
 end

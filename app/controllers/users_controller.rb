@@ -1,15 +1,11 @@
 class UsersController < ApplicationController
-  before_action :require_login, only: [:index, :show, :edit, :update, :destroy]
+  before_action :require_login, only: [:index, :edit, :update, :destroy]
+  before_action :require_admin, only: [:index, :new]
 
   # GET /users
   # GET /users.json
   def index
     @users = User.all
-  end
-
-  # GET /users/1
-  # GET /users/1.json
-  def show
   end
 
   # GET /users/new
@@ -30,35 +26,21 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect_to payments_path
       else
-        @user.errors.full_messages.each do |message|
-          flash.now[:error] = message
+        flash.now[:error] = @user.errors.full_messages
         end
         render :login
-      end
   end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+        redirect_to payments_path
+        flash[:success] = "User updated successfully!"
       else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        flash.now[:error] = @user.errors.full_messages
+        render :edit
       end
-    end
-  end
-
-  # DELETE /users/1
-  # DELETE /users/1.json
-  def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   def authenticate
@@ -67,7 +49,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to payments_path
     else
-      flash.now[:error] = "Invalid email/password combination"
+      flash.now[:error] = []
+      flash.now[:error] << "Invalid email/password combination"
       render :login
     end
   end

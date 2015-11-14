@@ -1,41 +1,26 @@
-<%= form_for(@payment) do |f| %>
-  <% if @payment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
+<% content_for :body_class, "form-style" %>
+<%= form_for(@payment, :html => { :class=>"payment-form" } ) do |f| %>
 
-      <ul>
-      <% @payment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>  
-  <div class="field">
-    <%= f.label :sender_id %><br>
-    <%= f.number_field :sender_id %>
+  <div class="field form-group">
+    <%= f.label :sender_id %>
+    <%= f.collection_select :sender_id, User.all, :id, :full_name, { :include_blank=> true }, { :class=>"form-control" } %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :recipient_id %><br>
-    <%= f.number_field :recipient_id %>
+    <%= f.collection_select :recipient_id, User.all, :id, :full_name, { :include_blank=> true }, { :class=>"form-control" } %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :amount %><br>
-    <%= f.text_field :amount %>
+    <div class="input-group">
+      <span class="input-group-addon">$</span>
+      <%= f.text_field :amount, :class=>"form-control", :value=>(number_with_precision(f.object.amount, :precision=>2)) %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :type_id %><br>
-    <%= f.number_field :type_id %>
-  </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :note %><br>
-    <%= f.text_area :note %>
+    <%= f.text_area :note, :class=>"form-control" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions form-group">
+    <%= f.submit (f.object.new_record? ? "Create" : "Update"), :class=>"btn btn-default submit-button" %>
   </div>
 <% end %>
