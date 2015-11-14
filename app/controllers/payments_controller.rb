@@ -42,11 +42,17 @@ class PaymentsController < ApplicationController
   def create
     @payment = Payment.new(payment_params)
 
-    if @payment.save
-      redirect_to payments_path
-      flash[:success] = "Payment created successfully!"
+    if payment_params[:sender_id] != payment_params[:recipient_id]
+      if @payment.save
+        redirect_to payments_path
+        flash[:success] = "Payment created successfully!"
+      else
+        flash.now[:error] = @payment.errors.full_messages
+        render :new
+      end
     else
-      flash.now[:error] = @payment.errors.full_messages
+      flash.now[:error] = []
+      flash.now[:error] << "Sender and recipient must be different."
       render :new
     end
   end

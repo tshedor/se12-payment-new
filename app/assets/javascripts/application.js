@@ -64,7 +64,7 @@ $(document).ready(function() {
 
   			if(resp.responseJSON.msg === true) {
 	  			$('.payment-' + payment_id).remove();
-
+	  			$('html,body').scrollTop(0);
 	  			$fake_flash.attr('class', 'alert alert-success fade in');
 	  			$fake_flash.text('Successfully paid');
 	  		}

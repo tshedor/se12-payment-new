@@ -5,3 +5,12 @@
 <div class="cancel-link">
 <%= link_to 'Cancel', payments_path %>
 </div>
+<% flash.each do |type, messages| %>
+  <div class="alert <%= bootstrap_class_for(type) %> fade in error-message">
+      <ul class="errors">
+        <% messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+  </div>
+<% end %>
