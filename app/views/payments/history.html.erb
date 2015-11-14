@@ -1,8 +1,8 @@
-<% content_for :body_class, "payment-page" %>
+<% content_for :body_class, "payment-page form-style" %>
 
 <% if @history.present? %>
+<h1>Payment History</h1>
 <table class="payment-table">
-<h1 class="table-title owed-table">Payment History</h1>
 <div class="new-payment-link"><%= link_to 'Back', payments_path, :class=>"btn btn-default" %></div>
   <tbody>
     <% @history.each do |payment| %>
