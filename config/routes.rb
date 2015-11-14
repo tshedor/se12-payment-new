@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :types
   resources :payment_users
   resources :payments, except: [:show, :destroy]
   resources :users, except: [:show, :destroy]
