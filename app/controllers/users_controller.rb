@@ -27,8 +27,8 @@ class UsersController < ApplicationController
         redirect_to payments_path
       else
         flash.now[:error] = @user.errors.full_messages
-        end
         render :login
+        end
   end
 
   # PATCH/PUT /users/1
