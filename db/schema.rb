@@ -13,13 +13,16 @@
 
 ActiveRecord::Schema.define(version: 20151114072904) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "payment_users", force: :cascade do |t|
     t.integer "payment_id"
     t.integer "user_id"
   end
 
-  add_index "payment_users", ["payment_id"], name: "index_payment_users_on_payment_id"
-  add_index "payment_users", ["user_id"], name: "index_payment_users_on_user_id"
+  add_index "payment_users", ["payment_id"], name: "index_payment_users_on_payment_id", using: :btree
+  add_index "payment_users", ["user_id"], name: "index_payment_users_on_user_id", using: :btree
 
   create_table "payments", force: :cascade do |t|
     t.integer  "recipient_id"
@@ -31,10 +34,6 @@ ActiveRecord::Schema.define(version: 20151114072904) do
     t.boolean  "paid",                                  default: false
   end
 
-  create_table "types", force: :cascade do |t|
-    t.string "name"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -43,4 +42,6 @@ ActiveRecord::Schema.define(version: 20151114072904) do
     t.string "role",            default: "user"
   end
 
+  add_foreign_key "payment_users", "payments"
+  add_foreign_key "payment_users", "users"
 end
