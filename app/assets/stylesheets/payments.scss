@@ -1,14 +1,19 @@
 // Place all the styles related to the Payments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// TS - This should be a stylesheet in your layout, not an import. It's bad for loading. Very few cases when @import url is appropriate in CSS, I honestly don't know why Google is still including this in their how-to
 @import url(https://fonts.googleapis.com/css?family=Roboto:700italic,500,300);
 
+
+// TS - I left a lot of notes in users.scss that apply to this file as well
 
 // payment index styles
 a {
 	text-decoration: none !important;
 	background-color: inherit !important;
 	color: #666;
+	// TS - Indentation
 &:hover {
 	color: #C9C9C9 !important;
 	}
@@ -17,6 +22,8 @@ a {
 	}
 }
 
+
+// TS - consolidate selectors
 body:not(.landing-page) {
 	background: url("footer_lodyas.png") center fixed;
 	margin: auto;
@@ -83,6 +90,8 @@ body {
 .alert-success {
 	width: 25%;
 	text-align: center;
+
+	// TS - shorthand for margin would work better here - margin: 20px auto 0;
 	margin: auto;
 	margin-top: 20px;
 	margin-bottom: 0px;

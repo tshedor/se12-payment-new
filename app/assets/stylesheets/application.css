@@ -14,5 +14,8 @@
  *= require_self
  */
 
+
+/* TS - this is a CSS file but you're using it like SCSS. You should use @import in a SCSS file. Additionally, require_tree . is dangerous. I feel like your !importants are to override the bootstrap styles. Bootstrap should be imported BEFORE your custom styles. Try using a setup like this: https://github.com/wearefine/frob-core/blob/master/source/stylesheets/application.css AND  https://github.com/wearefine/frob-core/blob/master/source/stylesheets/base.scss; */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";

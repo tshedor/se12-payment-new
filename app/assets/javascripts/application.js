@@ -15,14 +15,20 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+
+// TS - When using sprockets, avoid including JS in the compilation file. Make a new file and require it here. Additionally, require_tree . is dangerous
+
 $(document).ready(function() {
     $('.input-group input[required]').on('keyup change', function() {
+
+      // TS - it's often ideal to not comma-ify your vars and instead declare `var` for each new variable
+      // TS - unused $form var
 		var $form = $(this).closest('form'),
             $group = $(this).closest('.input-group'),
 			$addon = $group.find('.input-group-addon'),
 			$icon = $addon.find('span'),
 			state = false;
-            
+
     	if (!$group.data('validate')) {
 			state = $(this).val() ? true : false;
 		}else if ($group.data('validate') == "email") {
@@ -32,17 +38,18 @@ $(document).ready(function() {
 		}
 
 		if (state) {
+        // TS - this If block doesn't do anything. Revise to !state
 				document.getElementById("email")
 		}else{
 				$addon.removeClass('success');
 				$addon.addClass('danger');
 				$icon.attr('class', 'glyphicon glyphicon-remove');
 		}
-        
+
 	});
-    
+
     $('.input-group input[required]').trigger('change');
-    
+
 
   $('.js-update-paid').click(function(e) {
   	e.preventDefault();
@@ -57,7 +64,7 @@ $(document).ready(function() {
   		data: { id: payment_id },
   		complete: function(resp) {
 
-  			var $fake_flash = $('<div />', { 
+  			var $fake_flash = $('<div />', {
   				text: resp.responseJSON.msg,
   				class: 'alert alert-danger fade in'
   			});
@@ -69,6 +76,8 @@ $(document).ready(function() {
 	  			$fake_flash.text('Successfully paid');
 
 	  			var message;
+
+          // TS - since resp.responseJSON.amount is being used multiple times, it's wise to cache the variable, i.e. var amount = resp.responseJSON.amount, and to just use amount
 	  			if(resp.responseJSON.amount > 0) {
 	  				message = "You are owed $" + resp.responseJSON.amount;
 	  			}
@@ -88,6 +97,7 @@ $(document).ready(function() {
   				$('.alert').remove();
   			}, 3000);
 
+        // TS - Should consider retooling your HTML and not using a table-based layout
   			$('table').each(function() {
   				if(!$(this).children('tbody').find('tr').length) {
   					$(this).prev().remove();
@@ -97,16 +107,20 @@ $(document).ready(function() {
   		}
   	})
   })
-    
+
 });
 
+// TS - calling $(function()... is unnecessary here. Everything in this wrapper could be declared within document ready
 $(function() {
 
     $('#login-form-link').click(function(e) {
+      // TS - use indentation
 		$("#login-form").delay(100).fadeIn(100);
  		$("#signup-form").fadeOut(100);
 		$('#signup-form-link').removeClass('active');
 		$(this).addClass('active');
+
+    // TS - declare e.preventDefault at the top of functions
 		e.preventDefault();
 	});
 	$('#signup-form-link').click(function(e) {
@@ -126,10 +140,12 @@ $(function() {
 
 });
 
+// TS - calling $(function()... is unnecessary here. Everything in this wrapper could be declared within the first document ready
 jQuery( function($) {
     $('a').tooltip();
 });
 
+// TS - redeclaration of document.ready Everything in this wrapper could be declared within the first instance
 $(document).ready(function(){
   setTimeout(function(){
     $('#flash').remove();

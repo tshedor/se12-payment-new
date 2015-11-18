@@ -3,6 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
+/*
+ TS - Couple things of note
+  1. Redeclaration of styles. You've got an a tag here and in payment_users. Aim to declare styles only once, and redeclare them only if they're nested or have an additional class.
+  2. Use of !important. Avoid using !important at all costs. It destroys specificity. As you delete these importants, check your front-end and make sure nothing is changing. If it is, you have a specificity problem elsewhere. I haven't seen anything to merit the use of !important in your code yet.
+  3. One-line per selector - https://github.com/brigade/scss-lint/blob/master/lib/scss_lint/linter/README.md#singlelineperselector
+  4. Since this is SCSS, use SCSS selectors. nested &:hover instead of .btn-register:hover. You're declaring .submit-button:hover twice on L30 because you're not trusting the first &:hover.
+  5. Avoid unnecessary styles. By and large, :visited and :active will cause you more problems than solutions.
+  6. Don't worry about vendor prefixing. Use `gem 'autoprefixer-rails'`
+*/
+
 .sign-in-error {
   width: 85%;
   margin: auto;

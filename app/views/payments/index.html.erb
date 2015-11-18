@@ -5,6 +5,8 @@
     </div>
   <% end %>
 <div class="welcome-message">
+<!-- TS - it's generally bad syntax to include ERB in HTML. Instead, consider content_tag(:span, "Hi, ...", class: 'greeting') -->
+<!-- TS - both of these look like they should be divs not spans -->
   <span class="greeting"><%= "Hi, #{current_user.first_name}!" %></span>
   <br />
   <span class="owe-message">
@@ -29,10 +31,13 @@
       <tr class="payment-<%= payment.id %>">
         <td class="payment-user"><%= User.find_by_id(payment.sender_id).first_name %></td>
         <%= render 'green_arrow' %>
+        <!-- TS - unnecessary interpolation -->
         <td class="payment-amount"><%= "#{number_to_currency(payment.amount)}" %></td>
       </tr>
+      <!-- TS - as discussed, I think this method is going to be  -->
       <tr class="links payment-<%= payment.id %>">
         <td></td>
+        <!-- TS - instead of using detail-link and/or override-link, style the a tag directly or apply these classes directly to the link -->
         <td class="detail-link override-link"><%= link_to 'Details', edit_payment_path(payment), "data-toggle" => "tooltip", "data-placement" => "bottom", "data-original-title" => "#{payment.note}", "trigger"=>"hover focus"%></td>
         <td class="paid-link">
           <div id="paid-msg"></div>
@@ -50,12 +55,15 @@
   <tbody class="payment-table">
     <% @sender_payments.each do |payment| %>
       <tr class="payment-<%= payment.id %>">
+        <!-- TS - avoid SQL calls in your view. Instead, an association should be made within the payment model to retrieve this. Will go over in the next review. -->
         <td class="payment-user"><%= User.find_by_id(payment.recipient_id).first_name %></td>
         <%= render 'red_arrow' %>
+        <!-- TS - unnecessary interpolation -->
         <td class="payment-amount"><%= "#{number_to_currency(payment.amount)}" %></td>
       </tr>
       <tr class="links payment-<%= payment.id %>">
         <td></td>
+        <!-- TS - hash rocket -->
         <td class="detail-link"><%= link_to 'Details', edit_payment_path(payment), "data-toggle" => "tooltip", "data-placement" => "bottom", "title" => "#{payment.note}" %></td>
         <td class="paid-link">
           <div id="paid-msg"></div>
@@ -66,6 +74,7 @@
   </tbody>
 </table>
 <div class="bottom-space"></div>
+<!-- TS - don't put javascript in a view unless you're feeding dynamic data and it's very, very, very minimal. All JS should be in a file -->
 <script type="text/javascript">
 $(document).ready(function(){
   setTimeout(function(){

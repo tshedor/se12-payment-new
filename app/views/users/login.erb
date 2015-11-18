@@ -10,12 +10,13 @@
 									</a>
 									<a class="btn btn-default" href="#" id="signup-form-link">
 										Register
-									</a>	
+									</a>
 							</div>
 						</div>
 				</div>
 			<div class="panel-body">
 				<div class="row">
+				<!-- TS - so here you have a grid system. I'd recommend apply that grid system to payment and history instead of the table-based layout -->
 					<div class="col-lg-12">
 						<%= form_tag "/login", :class=>"login-form", :id=>"login-form", :role=>"form", :style=>"display: block;" do %>
 							<div class="form-group login-email validate-email" data-validate="email" >
@@ -24,7 +25,7 @@
 
 							<div class="form-group login-password" data-validate="length" data-length="6">
 								<%= password_field_tag 'password', nil, :placeholder => 'password', class: "form-control", :required=>true, :tabindex=>"2" %>
-							</div>  
+							</div>
 
 							<div class="form-group">
 								<div class="row">

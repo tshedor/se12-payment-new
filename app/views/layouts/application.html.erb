@@ -3,14 +3,18 @@
 <head>
   <title>Payment Tracker</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  <!-- TS - JS should be at the end, just before the close of your body tag -->
   <%= javascript_include_tag 'application' %>
+  <!-- TS - not a huge fan of importing from a CDN, but for the purposes of this project, it works -->
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"> </script>
   <%= csrf_meta_tags %>
 </head>
-<body class="<%= yield (:body_class) %>"> 
+<!-- TS - previously discussed, but this should be called from an instance variable/helper over a yield/content_for -->
+<body class="<%= yield (:body_class) %>">
 
 <div class="container">
+<!-- TS - Avoid double negatives, i.e. if session[:user_id].present?  -->
   <% if !session[:user_id].nil? %>
     <div class="pull-right logout-link override-link">
     	<h3>
@@ -19,7 +23,7 @@
     	</h3>
     </div>
   <% end %>
-  
+
   <%= yield %>
 </div>
 
