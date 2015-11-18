@@ -1,0 +1,2 @@
+class PaymentNotice < ApplicationMailer
+end
