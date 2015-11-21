@@ -1,9 +1,11 @@
 class PaymentsController < ApplicationController
+  # TS - Since you use current_user in those methdos, add :index, :history to this only:
   before_action :require_login, only: [:show, :edit, :update, :destroy]
 
   # GET /payments
   # GET /payments.json
   def index
+    # TS - unnecessary interpolation
     @sender_payments = Payment.where(sender_id: "#{current_user.id}", paid: false).all
     @recipient_payments = Payment.where(recipient_id: "#{current_user.id}", paid: false).all
 
@@ -17,6 +19,8 @@ class PaymentsController < ApplicationController
 
   # GET /payments/1/edit
   def edit
+    # TS - Payment.find assumes you're passing in an id as the sole argument; find_by_id is overly verbose
+    # TS - Additionally, I would call set_payment here or in a before_action
     @payment = Payment.find_by_id(params[:id])
   end
 
@@ -34,6 +38,7 @@ class PaymentsController < ApplicationController
         render :new
       end
     else
+      # TS - Instead of clearing your flash errors, just ensure that it's an array with `flash.now[:error] ||= []`
       flash.now[:error] = []
       flash.now[:error] << "Sender and recipient must be different."
       render :new
@@ -54,6 +59,7 @@ class PaymentsController < ApplicationController
   end
 
   def paid
+    # TS - I would call set_payment here or in a before_action
     payment = Payment.find(params[:id])
     unless payment.paid?
       payment.update_attribute(:paid, true)

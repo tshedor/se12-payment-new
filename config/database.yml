@@ -10,6 +10,7 @@ default: &default
   pool: 5
   timeout: 5000
 
+# TS - Not clear on this...it appears you're using sqlite locally although you're defining your adapter as postgres?
 development:
   <<: *default
   database: db/development.sqlite3

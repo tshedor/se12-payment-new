@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20151114072904) do
   add_index "payment_users", ["payment_id"], name: "index_payment_users_on_payment_id"
   add_index "payment_users", ["user_id"], name: "index_payment_users_on_user_id"
 
+  # TS - You'll want to put indexes on recipient_id and sender_id here. In fact, you probably won't need the payment_users table if you're setting up your schema like this
   create_table "payments", force: :cascade do |t|
     t.integer  "recipient_id"
     t.integer  "sender_id"

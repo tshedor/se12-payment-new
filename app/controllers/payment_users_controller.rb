@@ -1,3 +1,4 @@
+# TS - remove this file, as well as its views folder, as you don't appear to be using it
 class PaymentUsersController < ApplicationController
   before_action :set_payment_user, only: [:show, :edit, :update, :destroy]
 

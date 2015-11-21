@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # TS - not using payment_users
   resources :payment_users
   resources :payments, except: [:show, :destroy]
   resources :users, except: [:show, :destroy]

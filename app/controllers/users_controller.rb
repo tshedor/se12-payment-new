@@ -15,13 +15,14 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    # TS - @user needs to be defined here, no?
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
-
+    # TS - indentation
       if @user.save
         session[:user_id] = @user.id
         redirect_to payments_path
@@ -38,6 +39,7 @@ class UsersController < ApplicationController
         redirect_to payments_path
         flash[:success] = "User updated successfully!"
       else
+        # TS - Ensure flash.now[:error] is an array with `flash.now[:error] ||= []`
         flash.now[:error] = @user.errors.full_messages
         render :edit
       end
@@ -49,6 +51,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to payments_path
     else
+      # TS - Instead of clearing your flash errors, just ensure that it's an array with `flash.now[:error] ||= []`
       flash.now[:error] = []
       flash.now[:error] << "Invalid email/password combination"
       render :login
